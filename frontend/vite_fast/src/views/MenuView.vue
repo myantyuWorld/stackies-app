@@ -6,10 +6,9 @@
                     <div class="rounded-xl bg-white shadow-xl">
                         <div class="p-6 sm:p-16">
                             <div class="space-y-4">
-
                                 <h2 class="mb-8 text-2xl text-cyan-900 font-bold">メニュー</h2>
                             </div>
-                            <div class="mt-16 grid space-y-4">
+                            <div class="mt-4 grid space-y-4">
                                 <button
                                     class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
                                     <div class="relative flex items-center space-x-4 justify-center">
