@@ -22,7 +22,7 @@
 
                         <button type="submit"
                             class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            @click="click"
+                            @click="login"
                             >
                             Signin
                         </button>
@@ -34,7 +34,20 @@
 </template>
 
 <script setup lang="ts">
-    const click = () => {
-        console.log("hello!")
-    }
+import axios from 'axios';
+import router from '@/router';
+
+const login = () => {
+    // TODO : 共通化 | https://programmer-note.hatenablog.com/entry/2021/09/26/175427
+    const promise = axios.get("http://localhost:18000/api/members/")
+    promise
+        .then((response) => {
+            console.log(response)
+            // router/index.ts > router.nameで画面遷移可能 | https://v3.router.vuejs.org/ja/guide/essentials/navigation.html
+            router.push('about') 
+        })
+        .catch((e) => {
+            console.log(e)
+        })
+}
 </script>
