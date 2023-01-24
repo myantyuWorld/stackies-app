@@ -46,7 +46,7 @@ const login = () => {
         .then((response) => {
             console.log(response)
             // router/index.ts > router.nameで画面遷移可能 | https://v3.router.vuejs.org/ja/guide/essentials/navigation.html
-            router.push('about')
+            router.push('menu')
         })
         .catch((e) => {
             console.log(e)
