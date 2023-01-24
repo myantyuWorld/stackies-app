@@ -1,5 +1,5 @@
 <template>
-    <div class="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">
+    <div class="relative py-16 bg-gradient-to-br from-sky-100 to-gray-200">
         <div class="flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">
                 <div class="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">

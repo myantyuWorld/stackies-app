@@ -14,9 +14,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <RouterLink to="/about">About</RouterLink>
     </nav>
   </div> -->
-  <div class="relative bg-white">
+  <div class="bg-gradient-to-br from-sky-100 to-gray-100">
     <div class="mx-auto max-w-7xl px-6">
-      <div class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+      <div class="flex items-center justify-between border-b-2 border-gray-300 py-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <a href="#">
             <span class="sr-only">Your Company</span>
