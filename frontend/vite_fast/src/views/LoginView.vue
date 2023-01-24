@@ -15,15 +15,17 @@
 
                     <div class="space-y-4 md:space-y-6">
                         <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stackies!は、案件対応履歴管理アプリです。</label>
-                            <label for="password" class="block mb-2 text-sm font-light text-gray-900 dark:text-white">ああああああああああああああああああああああああああああああああああああああ</label>
-                            <label for="password" class="block mb-2 text-sm font-light text-gray-900 dark:text-white">ああああああああああああああああああああああああああああああああああああああ</label>
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stackies!は、案件対応履歴管理アプリです。</label>
+                            <label for="password"
+                                class="block mb-2 text-sm font-light text-gray-900 dark:text-white">ああああああああああああああああああああああああああああああああああああああ</label>
+                            <label for="password"
+                                class="block mb-2 text-sm font-light text-gray-900 dark:text-white">ああああああああああああああああああああああああああああああああああああああ</label>
                         </div>
 
                         <button type="submit"
                             class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            @click="login"
-                            >
+                            @click="login">
                             Signin
                         </button>
                     </div>
@@ -44,7 +46,7 @@ const login = () => {
         .then((response) => {
             console.log(response)
             // router/index.ts > router.nameで画面遷移可能 | https://v3.router.vuejs.org/ja/guide/essentials/navigation.html
-            router.push('about') 
+            router.push('about')
         })
         .catch((e) => {
             console.log(e)
