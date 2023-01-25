@@ -20,10 +20,10 @@ onMounted(() => {
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
-            <div class="p-6 sm:p-16">
+            <div class="p-6 sm:p-6">
 
               <div class="space-y-4">
-                <h2 class="mb-8 text-2xl text-cyan-900 font-bold">基本情報登録</h2>
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">基本情報登録</h2>
               </div>
 
               <div class="flex bg-white">
@@ -115,10 +115,10 @@ onMounted(() => {
               </div>
 
             </div>
-            <div class="p-6 sm:p-16">
+            <div class="p-6 sm:p-6">
 
               <div class="space-y-0">
-                <h2 class="mb-8 text-2xl text-cyan-900 font-bold">
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">
                   経験技術
                   <button data-modal-toggle="defaultModal" data-modal-target="defaultModal"
                     class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">ToggleModal</button>
