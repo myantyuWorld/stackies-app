@@ -17,7 +17,7 @@ https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/patterns/deploy-a
 ### アーキテクチャ
 
 - AWS Copilot(ECS on Fargate)
-- frontend : Vue3(Vite + [tailwindcss](https://tailwindcss.com/))
+- frontend : Vue3(Vite + [tailwindcss](https://tailwindcss.com/)([Flowbite](https://flowbite.com/docs/getting-started/vue/)))
 - backend : Django(Django REST framework)
 - db : PostgreSQL
   
