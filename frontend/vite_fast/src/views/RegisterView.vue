@@ -106,7 +106,16 @@ import MasterData from '../components/MasterData.vue'
             <div class="p-6 sm:p-16">
 
               <div class="space-y-0">
-                <h2 class="mb-8 text-2xl text-cyan-900 font-bold">経験技術</h2>
+                <h2 class="mb-8 text-2xl text-cyan-900 font-bold">
+                  経験技術
+                  <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+                    class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">Toggle
+                    Modal</button>
+
+                  
+                </h2>
+
+
               </div>
 
               <div class="flex bg-white">
@@ -117,9 +126,9 @@ import MasterData from '../components/MasterData.vue'
                     <div class="mt-5">
                       <!-- tabs -->
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          経験
-                        </label>
+                        for="grid-password">
+                        経験
+                      </label>
                       <div class="grid w-full grid-cols-4 space-x-2 rounded-xl bg-gray-200 p-2" x-data="app">
                         <div>
                           <input type="radio" name="option" id="1" class="peer hidden" checked />
