@@ -14,6 +14,7 @@ import MasterData from '../components/MasterData.vue'
 
               <div class="space-y-4">
                 <h2 class="mb-8 text-2xl text-cyan-900 font-bold">マスタ管理</h2>
+                <RouterLink to="/menu">Menu</RouterLink>
               </div>
 
               <MasterData name="言語" itemBadgeColor="blue"/>
