@@ -22,6 +22,7 @@ import HelloWorld from './components/HelloWorld.vue'
             <span class="sr-only">Your Company</span>
             <img alt="Vue logo" class="h-8 w-auto sm:h-10" src="@/assets/sample.jpeg" />
           </a>
+          <RouterLink to="/menu">Menu</RouterLink>
         </div>
         <div class="-my-2 -mr-2 md:hidden">
           <button type="button"
