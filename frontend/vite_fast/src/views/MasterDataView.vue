@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MasterData from '../components/MasterData.vue'
+import MasterData from '../components/MasterDataItem.vue'
 </script>
 
 <template>
