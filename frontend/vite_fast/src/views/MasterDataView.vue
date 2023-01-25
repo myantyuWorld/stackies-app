@@ -14,30 +14,6 @@ import MasterData from '../components/MasterData.vue'
               <div class="space-y-4">
                 <h2 class="mb-8 text-2xl text-cyan-900 font-bold">マスタ管理</h2>
               </div>
-<!-- 
-              <div class="rounded-xl bg-white shadow-xl">
-                <div class="p-5 sm:p-8">
-                  <div class="space-y-4">
-                    <h2 class="mb-8 text-lg text-cyan-900 font-bold">言語</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rounded-xl bg-white shadow-xl">
-                <div class="p-5 sm:p-8">
-                  <div class="space-y-4">
-                    <h2 class="mb-8 text-lg text-cyan-900 font-bold">言語</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rounded-xl bg-white shadow-xl my-4">
-                <div class="p-5 sm:p-8">
-                  <div class="space-y-4">
-                    <h2 class="mb-8 text-lg text-cyan-900 font-bold">言語</h2>
-                  </div>
-                </div>
-              </div> -->
 
               <!-- 言語 -->
               <div class="rounded-xl bg-white shadow-xl p-6 my-6">
@@ -50,7 +26,7 @@ import MasterData from '../components/MasterData.vue'
   
                   <div class="flex flex-wrap -m-4 text-center">
                     <div class="p-1 sm:w-1/3 lg:w-1/4 w-full hover:scale-105 duration-500" v-for="n of 6" :key="n">
-                      <MasterData/>
+                      <MasterData badgeColor="blue"/>
                     </div>
                       
                   </div>
@@ -70,44 +46,9 @@ import MasterData from '../components/MasterData.vue'
   
                     <div class="p-1 sm:w-1/3 lg:w-1/4 w-full hover:scale-105 duration-500" v-for="n of 6"
                       :key="n">
-                      <div
-                        class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
-  
-                        <div
-                          class="bg-gradient-to-tr from-rose-500 to-rose-400 w-16 h-16  rounded-full shadow-2xl shadow-rose-400 border-white  border-dashed border-2  flex justify-center items-center ">
-                          <div>
-                            <h1 class="text-white text-xs">Java</h1>
-                          </div>
-                        </div>
-  
-                        <div>
-                          <button
-                            class="text-xs mt-0 px-3 py-3 bg-black-400 text-white rounded-lg  tracking-wider hover:bg-black-300 outline-none">Del</button>
-                        </div>
-  
-                      </div>
+                      <MasterData badgeColor="rose"/>
                     </div>
-  
-                    <!-- <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
-                    <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
-                      <div>
-                        <h2 class="text-gray-900 text-lg font-bold">Total Ballance</h2>
-                        <h3 class="mt-2 text-xl font-bold text-orange-500 text-left">+ 150.000 ₭</h3>
-                        <p class="text-sm font-semibold text-gray-400">Last Transaction</p>
-                        <button
-                          class="text-sm mt-6 px-4 py-2 bg-orange-400  text-white rounded-lg  tracking-wider hover:bg-orange-500 outline-none">Add
-                          to cart</button>
-                      </div>
-                      <div
-                        class="bg-gradient-to-tr from-orange-500 to-orange-400 w-32 h-32  rounded-full shadow-2xl shadow-orange-400 border-white  border-dashed border-2  flex justify-center items-center ">
-                        <div>
-                          <h1 class="text-white text-2xl">C#</h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-  
-  
+
                   </div>
                 </div>
               </div>
@@ -125,22 +66,7 @@ import MasterData from '../components/MasterData.vue'
   
                     <div class="p-1 sm:w-1/3 lg:w-1/4 w-full hover:scale-105 duration-500" v-for="n of 6"
                       :key="n">
-                      <div
-                        class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
-  
-                        <div
-                          class="bg-gradient-to-tr from-lime-500 to-lime-400 w-16 h-16  rounded-full shadow-2xl shadow-lime-400 border-white  border-dashed border-2  flex justify-center items-center ">
-                          <div>
-                            <h1 class="text-white text-xs">Java</h1>
-                          </div>
-                        </div>
-  
-                        <div>
-                          <button
-                            class="text-xs mt-0 px-3 py-3 bg-black-400 text-white rounded-lg  tracking-wider hover:bg-black-300 outline-none">Del</button>
-                        </div>
-  
-                      </div>
+                      <MasterData badgeColor="lime"/>
                     </div>
   
                     <!-- <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
