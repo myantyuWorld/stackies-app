@@ -107,7 +107,7 @@
                         class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
   
                         <div
-                          class="bg-gradient-to-tr from-rose-500 to-rose-400 w-16 h-16  rounded-full shadow-2xl shadow-green-400 border-white  border-dashed border-2  flex justify-center items-center ">
+                          class="bg-gradient-to-tr from-rose-500 to-rose-400 w-16 h-16  rounded-full shadow-2xl shadow-rose-400 border-white  border-dashed border-2  flex justify-center items-center ">
                           <div>
                             <h1 class="text-white text-xs">Java</h1>
                           </div>
@@ -162,7 +162,7 @@
                         class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
   
                         <div
-                          class="bg-gradient-to-tr from-lime-500 to-lime-400 w-16 h-16  rounded-full shadow-2xl shadow-green-400 border-white  border-dashed border-2  flex justify-center items-center ">
+                          class="bg-gradient-to-tr from-lime-500 to-lime-400 w-16 h-16  rounded-full shadow-2xl shadow-lime-400 border-white  border-dashed border-2  flex justify-center items-center ">
                           <div>
                             <h1 class="text-white text-xs">Java</h1>
                           </div>
