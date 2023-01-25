@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import MenuView from '../views/MenuView.vue'
+import MasterDataView from '../views/MasterDataView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path : '/menu',
       name : 'menu',
       component : MenuView
+    },
+    {
+      path : '/master',
+      name : 'master',
+      component : MasterDataView
     },
   ]
 })
