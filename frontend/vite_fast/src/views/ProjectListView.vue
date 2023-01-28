@@ -22,11 +22,9 @@ onMounted(() => {
               </div>
 
               <div class="flex bg-white">
-                <div class="w-full px-4 shadow-none">
+                <div class="w-full px-4 shadow-none flex flex-wrap ">
                   <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
-                  <form action="#" class="p-0">
-                    <div class="mt-5 w-full">
-
+                    <div class="p-1 w-1/12">
                       <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                           for="grid-password">
@@ -38,7 +36,7 @@ onMounted(() => {
                       </div>
 
                     </div>
-                    <div class="mt-5 w-full">
+                    <div class="p-1 w-2/12">
 
                       <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -51,7 +49,7 @@ onMounted(() => {
                       </div>
 
                     </div>
-                    <div class="mt-5">
+                    <div class="p-1 w-4/12">
 
                       <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -64,7 +62,31 @@ onMounted(() => {
                       </div>
 
                     </div>
-                    <div class="mt-5">
+                    <div class="p-1 w-5/12">
+                    <div>
+                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        for="grid-password">
+                        資格
+                      </label>
+                      <input type="text"
+                        class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+                        placeholder="資格" disabled>
+                    </div>
+
+                    </div>
+                    <div class="p-1 w-3/12">
+                      <div>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="grid-password">
+                          住所
+                        </label>
+                        <input type="text"
+                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+                          placeholder="住所" disabled>
+                      </div>
+
+                    </div>
+                    <div class="p-1 w-9/12">
 
                       <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -77,21 +99,9 @@ onMounted(() => {
                       </div>
 
                     </div>
-                    <div class="mt-5">
 
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          資格
-                        </label>
-                        <input type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-                          placeholder="資格" disabled>
-                      </div>
 
-                    </div>
-
-                    <div class="mt-5">
+                    <div class="p-1 w-full">
 
                       <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -104,7 +114,6 @@ onMounted(() => {
                       </div>
 
                     </div>
-                  </form>
 
                 </div>
               </div>
@@ -144,7 +153,7 @@ onMounted(() => {
 
                     <!-- https://flowbite.com/docs/components/tables/#table-filter -->
                     <table
-                      class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                      class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5 table-auto">
 
                       <div class="flex items-center justify-between">
                         <div>
@@ -204,7 +213,7 @@ onMounted(() => {
                             </svg>
                           </div>
                           <input type="text" id="table-search"
-                            class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block p-1 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Search for items">
                         </div>
                       </div>
@@ -215,27 +224,25 @@ onMounted(() => {
                         <!-- SP版にした際に、表示する場合、明細件数と同じ数のヘッダーが必要 -->
                         <tr
                           class="bg-gray-100 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                          <th class="p-3 text-left text-xs">業種</th>
-                          <th class="p-3 text-left text-xs">期間</th>
-                          <th class="p-3 text-left text-xs">業務概要</th>
-                          <th class="p-3 text-left text-xs">言語</th>
-                          <th class="p-3 text-left text-xs">DB/Tool</th>
-                          <th class="p-3 text-left text-xs">動作環境</th>
-                          <th class="p-3 text-left text-xs">作業工程</th>
-                          <th class="p-3 text-left text-xs">役割</th>
-                          <th class="p-3 text-left text-xs">Actions</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">業種</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">期間</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">業務概要</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">言語</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">DB/Tool</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">動作環境</th>
+                          <th colspan="7" class="p-1 text-center text-xs">作業工程</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">役割</th>
+                          <th rowspan="2" class="p-1 text-center text-xs">Actions</th>
                         </tr>
                         <tr
                           class="bg-gray-100 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                          <th class="p-3 text-left text-xs">業種</th>
-                          <th class="p-3 text-left text-xs">期間</th>
-                          <th class="p-3 text-left text-xs">業務概要</th>
-                          <th class="p-3 text-left text-xs">言語</th>
-                          <th class="p-3 text-left text-xs">DB/Tool</th>
-                          <th class="p-3 text-left text-xs">動作環境</th>
-                          <th class="p-3 text-left text-xs">作業工程</th>
-                          <th class="p-3 text-left text-xs">役割</th>
-                          <th class="p-3 text-left text-xs">Actions</th>
+                          <th rowspan="" class="p-1 text-center text-xs">分析</th>
+                          <th rowspan="" class="p-1 text-center text-xs">要件</th>
+                          <th rowspan="" class="p-1 text-center text-xs">基本</th>
+                          <th rowspan="" class="p-1 text-center text-xs">詳細</th>
+                          <th rowspan="" class="p-1 text-center text-xs">製造</th>
+                          <th rowspan="" class="p-1 text-center text-xs">評価</th>
+                          <th rowspan="" class="p-1 text-center text-xs">運用</th>
                         </tr>
 
 
@@ -244,29 +251,41 @@ onMounted(() => {
 
 
                         <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">John Covv</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">建設</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">2020/12/01(2021/6/30)</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
                           <td
-                            class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer text-xs">
+                            class="border-grey-light border hover:bg-gray-100 p-1 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer text-xs">
                             Del</td>
                         </tr>
                         <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">John Covv</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
-                          <td class="border-grey-light border hover:bg-gray-100 p-3 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">銀行</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">2021/07/01(2021/12/15)</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center"></td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center"></td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs text-center">●</td>
+                          <td class="border-grey-light border hover:bg-gray-100 p-1 text-xs">あああああああ</td>
                           <td
-                            class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer text-xs">
+                            class="border-grey-light border hover:bg-gray-100 p-1 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer text-xs">
                             Del</td>
                         </tr>
 
@@ -366,16 +385,19 @@ body {
     display: inline-table !important;
   }
 
-  thead tr:not(:first-child) {
+  /* thead tr:not(:first-child) {
     display: none;
-  }
+  } */
 }
 
 td:not(:last-child) {
   border-bottom: 0;
 }
 
-th:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+/* th:not(:last-child) {
+  border: 1px solid rgba(0, 0, 0, .1);
+} */
+th {
+  border: 1px solid rgba(0, 0, 0, .1);
 }
 </style>
