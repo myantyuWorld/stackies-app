@@ -3,6 +3,7 @@ import MasterData from '../components/MasterData.vue'
 import MasterDataItem from '../components/MasterDataItem.vue'
 import Rating from '../components/Rating.vue'
 import ExperienceRating from '../components/ExperienceRating.vue'
+import BaseInfo from '../components/BaseInfo.vue'
 
 import { onMounted } from 'vue'
 import { initModals } from 'flowbite'
@@ -23,95 +24,12 @@ onMounted(() => {
             <div class="p-6 sm:p-6">
 
               <div class="space-y-4">
-                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">基本情報登録</h2>
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
 
               <div class="flex bg-white">
-                <div class="w-full px-4 shadow-none">
-                  <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
-                  <form action="#" class="p-0">
-                    <div class="mt-5 w-full">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          イニシャル
-                        </label>
-                        <input type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="イニシャル">
-                      </div>
-
-                    </div>
-                    <div class="mt-5 w-full">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          生年月日
-                        </label>
-                        <input type="date"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="生年月日">
-                      </div>
-
-                    </div>
-                    <div class="mt-5">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          最終学歴
-                        </label>
-                        <input type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="最終学歴">
-                      </div>
-
-                    </div>
-                    <div class="mt-5">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          住所
-                        </label>
-                        <input type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="住所">
-                      </div>
-
-                    </div>
-                    <div class="mt-5">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          資格
-                        </label>
-                        <input type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="資格">
-                      </div>
-
-                    </div>
-
-                    <div class="mt-5">
-
-                      <div>
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="grid-password">
-                          自己PR
-                        </label>
-                        <textarea type="text"
-                          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent "
-                          placeholder="Email"></textarea>
-                      </div>
-
-                    </div>
-                  </form>
-
-                </div>
+                <!-- TODO : 入力モード、表示モードをpropで切り替えられるようにする -->
+                <BaseInfo/>
               </div>
 
             </div>
