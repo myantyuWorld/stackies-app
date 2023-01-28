@@ -8,12 +8,12 @@ import ProjectListDetail from './ProjectListDetail.vue'
 <template>
   <div class="m-4">
     <!-- https://flowbite.com/docs/components/tables/#table-caption -->
-    <div class="w-full mx-auto my-5">
+    <div class="w-full flex">
       <caption class="text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-        Our products
-        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite
-          products designed to help you work and play, stay organized, get answers, keep in touch, grow
-          your business, and more.</p>
+        あなたがこれまで経験してきた案件です。
+        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+          hogehogeふがふが
+        </p>
       </caption>
     </div>
     <!-- https://flowbite.com/docs/components/tables/#table-filter -->
@@ -48,18 +48,22 @@ import ProjectListDetail from './ProjectListDetail.vue'
         <ProjectListDetail />
         <ProjectListDetail />
         <ProjectListDetail />
+        <ProjectListDetail />
+        <ProjectListDetail />
+        <ProjectListDetail />
+        <ProjectListDetail />
+        <ProjectListDetail />
       </tbody>
     </table>
-    <nav class="flex flex-wrap text-center items-center justify-between pt-4" aria-label="Table navigation">
+    <nav class="flex flex-wrap text-center items-center justify-between" aria-label="Table navigation">
 
-      <div class="sm:w-1/2 mb-4">
+      <div class="sm:w-1/2">
         <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span
             class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
             class="font-semibold text-gray-900 dark:text-white">1000</span></span>
       </div>
 
       <div class="sm:w-1/2">
-
         <ul class="inline-flex items-center -space-x-px">
           <li>
             <a href="#"

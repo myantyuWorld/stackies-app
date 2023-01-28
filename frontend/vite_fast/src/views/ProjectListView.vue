@@ -18,7 +18,7 @@ onMounted(() => {
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
-            <div class="p-6 sm:p-6">
+            <div class="p-3 sm:p-3">
               <div class="space-y-4">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
@@ -27,7 +27,7 @@ onMounted(() => {
                 <BaseInfo/>
               </div>
             </div>
-            <div class="p-6 sm:p-6">
+            <div class="p-3 sm:p-3">
 
               <div class="space-y-0">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">
