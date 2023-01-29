@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import MasterDataItem from './MasterDataItem.vue'
+
 defineProps<{
   itemBadgeColor: string,
-  name: string
+  name: string,
+  list: object
 }>()
 </script>
 <template>
@@ -15,7 +17,7 @@ defineProps<{
 
     </div>
     <div class="flex flex-wrap w-full">
-      <MasterDataItem :badgeColor=itemBadgeColor v-for="n of 8" :key="n" />
+      <MasterDataItem :name=item.name v-for="item of list" :key="item.name" />
     </div>
   </div>
 

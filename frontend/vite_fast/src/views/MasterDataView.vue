@@ -1,5 +1,44 @@
 <script setup lang="ts">
 import MasterData from '../components/MasterData.vue'
+import { ref } from 'vue';
+
+const languageList = ref([
+  {
+    name: "Java"
+  },
+  {
+    name: "C#"
+  },
+  {
+    name: "Python"
+  },
+  {
+    name: "Javascript"
+  },
+])
+const toolList = ref([
+  {
+    name: "Docker"
+  },
+  {
+    name: "AWS CLI"
+  },
+  {
+    name: "VS Code"
+  },
+])
+const infraList = ref([
+  {
+    name: "Windows"
+  },
+  {
+    name: "Linux"
+  },
+  {
+    name: "AWS ECS"
+  },
+])
+
 </script>
 
 <template>
@@ -17,9 +56,9 @@ import MasterData from '../components/MasterData.vue'
                 <RouterLink to="/menu">Menu</RouterLink>
               </div>
 
-              <MasterData name="言語" itemBadgeColor="blue"/>
-              <MasterData name="DB・ツール" itemBadgeColor="rose"/>
-              <MasterData name="動作環境" itemBadgeColor="lime"/>
+              <MasterData :list=languageList name="言語" itemBadgeColor="blue" />
+              <MasterData :list=toolList name="DB・ツール" itemBadgeColor="rose" />
+              <MasterData :list=infraList name="動作環境" itemBadgeColor="lime" />
 
             </div>
 
