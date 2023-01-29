@@ -4,20 +4,10 @@ defineProps<{
 }>()
 </script>
 <template>
-  <div class=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
-    <div
-      class="bg-gradient-to-tr w-16 h-16  rounded-full shadow-2xl  border-white  border-dashed border-2  flex justify-center items-center"
-      :class="`from-${badgeColor}-500 to-${badgeColor}-400 shadow-${badgeColor}-400`">
-      <div>
-        <h1 class="text-white text-xs">Java</h1>
-      </div>
-    </div>
-
-    <div>
-      <button
-        class="text-xs mt-0 px-3 py-3 bg-black-400 text-white rounded-lg  tracking-wider hover:bg-black-300 outline-none">Del</button>
-    </div>
-
+  <div class="w-1/4 items-center mb-4">
+    <input id="default-checkbox" type="checkbox" value=""
+      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default
+      checkbox</label>
   </div>
-
 </template>
