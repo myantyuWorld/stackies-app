@@ -73,12 +73,12 @@ onMounted(() => {
                       </div>
                       <!-- Modal body -->
                       <div class="p-6 space-y-6">
-                        <ExperienceRating/>
-                        <ExperienceRating/>
-                        <ExperienceRating/>
-                        <ExperienceRating/>
-                        <ExperienceRating/>
-                        <ExperienceRating/>
+                        <ExperienceRating itemName="Java"/>
+                        <ExperienceRating itemName="C#"/>
+                        <ExperienceRating itemName="Python"/>
+                        <ExperienceRating itemName="C++"/>
+                        <ExperienceRating itemName="Django4.0"/>
+                        <ExperienceRating itemName="JQuery"/>
                       </div>
                       <!-- Modal footer -->
                       <div
@@ -112,9 +112,9 @@ onMounted(() => {
                         経験
                       </label>
 
-                      <ExperienceRating/>
-                      <ExperienceRating/>
-                      <ExperienceRating/>
+                      <ExperienceRating itemName="Java"/>
+                      <ExperienceRating itemName="Docker"/>
+                      <ExperienceRating itemName="JavaScript"/>
                     </div>
 
                     <div class="mt-10">
