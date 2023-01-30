@@ -9,7 +9,7 @@ defineProps<{
 </script>
 <template>
   <div class="rounded-xl bg-white shadow-xl p-6 my-6">
-    <div class="container mt-8 px-5 py-1 mx-auto my-auto">
+    <div class="container px-5 py-1 mx-auto my-auto">
       <h2 class="mb-8 text-xl text-cyan-900 font-bold">{{ name }}
         <!-- TODO：本画面で、言語など追加できるようにする -->
         <!-- <button
