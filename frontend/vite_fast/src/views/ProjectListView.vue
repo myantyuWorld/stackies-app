@@ -4,6 +4,7 @@ import { initDropdowns, } from 'flowbite'
 
 import ProjectListTable from '../components/ProjectListTable.vue'
 import BaseInfo from '../components/BaseInfo.vue'
+import ExperienceRating from '../components/ExperienceRating.vue'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -24,8 +25,18 @@ onMounted(() => {
               </div>
               <div class="flex bg-white">
                 <!-- TODO : 入力モード、表示モードをpropで切り替えられるようにする -->
-                <BaseInfo/>
+                <BaseInfo />
               </div>
+            </div>
+            <div class="p-3 sm:p-3">
+              <!-- tabs -->
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                経験
+              </label>
+
+              <ExperienceRating :experienceRate="4" itemName="Java" />
+              <ExperienceRating :experienceRate="2" itemName="Docker" />
+              <ExperienceRating :experienceRate="4" itemName="JavaScript" />
             </div>
             <div class="p-3 sm:p-3">
 
@@ -36,7 +47,7 @@ onMounted(() => {
               </div>
               <div class="flex bg-white">
                 <div class="w-full px-4 shadow-none">
-                  <ProjectListTable/>
+                  <ProjectListTable />
                 </div>
               </div>
             </div>

@@ -73,12 +73,12 @@ onMounted(() => {
                       </div>
                       <!-- Modal body -->
                       <div class="p-6 space-y-6">
-                        <ExperienceRating itemName="Java"/>
-                        <ExperienceRating itemName="C#"/>
-                        <ExperienceRating itemName="Python"/>
-                        <ExperienceRating itemName="C++"/>
-                        <ExperienceRating itemName="Django4.0"/>
-                        <ExperienceRating itemName="JQuery"/>
+                        <ExperienceRating :experienceRate="4" itemName="Java"/>
+                        <ExperienceRating :experienceRate="4" itemName="C#"/>
+                        <ExperienceRating :experienceRate="3" itemName="Python"/>
+                        <ExperienceRating :experienceRate="2" itemName="C++"/>
+                        <ExperienceRating :experienceRate="3" itemName="Django4.0"/>
+                        <ExperienceRating :experienceRate="4" itemName="JQuery"/>
                       </div>
                       <!-- Modal footer -->
                       <div
@@ -112,9 +112,9 @@ onMounted(() => {
                         経験
                       </label>
 
-                      <ExperienceRating itemName="Java"/>
-                      <ExperienceRating itemName="Docker"/>
-                      <ExperienceRating itemName="JavaScript"/>
+                      <ExperienceRating :experienceRate="3" itemName="Java"/>
+                      <ExperienceRating :experienceRate="2" itemName="Docker"/>
+                      <ExperienceRating :experienceRate="3" itemName="JavaScript"/>
                     </div>
 
                     <div class="mt-10">
