@@ -1,10 +1,18 @@
 <script setup lang="ts">
-defineProps<{
+import { ref } from 'vue';
+import MasterDataItem from '../components/MasterDataItem.vue'
+import Rating from '../components/Rating.vue'
+
+const data = defineProps<{
   itemName: string,
   experienceRate: int
 }>()
-import MasterDataItem from '../components/MasterDataItem.vue'
-import Rating from '../components/Rating.vue'
+
+const selected = ref(0)
+selected.value = data.experienceRate
+
+// selected = data.experienceRate
+
 </script>
 <template>
 
@@ -13,17 +21,13 @@ import Rating from '../components/Rating.vue'
 
       <MasterDataItem :name=itemName />
       <div class="p-1 w-1/4 hover:scale-105 duration-500">
-        <select id="countries"
+        <select v-model="selected" id="countries"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option :value="n" v-for="n of 5" :key="n">{{ n }}</option>
         </select>
       </div>
       <div class="p-1 sm:w-1/4 lg:w-2/4 w-full hover:scale-105 duration-500">
-        <Rating :rate=experienceRate />
+        <Rating :rate=selected />
       </div>
     </div>
 
