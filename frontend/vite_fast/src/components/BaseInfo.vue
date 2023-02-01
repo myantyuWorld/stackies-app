@@ -1,3 +1,8 @@
+<script setup lang="ts">
+defineProps<{
+  inputMode: boolean,
+}>()
+</script>
 <template>
   <div class="w-full px-4 shadow-none flex flex-wrap ">
     <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
@@ -8,7 +13,8 @@
         </label>
         <input type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="" disabled value="Y O">
+          placeholder="" value="Y O"
+          :disabled="inputMode">
       </div>
 
     </div>
@@ -20,7 +26,7 @@
         </label>
         <input type="date"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="生年月日" disabled>
+          placeholder="生年月日" :disabled="inputMode">
       </div>
 
     </div>
@@ -32,7 +38,7 @@
         </label>
         <input type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="最終学歴" disabled>
+          placeholder="最終学歴" :disabled="inputMode">
       </div>
 
     </div>
@@ -43,7 +49,7 @@
         </label>
         <input type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="資格" disabled>
+          placeholder="資格" :disabled="inputMode">
       </div>
 
     </div>
@@ -54,7 +60,7 @@
         </label>
         <input type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="住所" disabled>
+          placeholder="住所" :disabled="inputMode">
       </div>
 
     </div>
@@ -66,7 +72,7 @@
         </label>
         <input type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="住所" disabled>
+          placeholder="住所" :disabled="inputMode">
       </div>
 
     </div>
@@ -80,7 +86,7 @@
         </label>
         <textarea type="text"
           class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="Email" disabled></textarea>
+          placeholder="Email" :disabled="inputMode"></textarea>
       </div>
 
     </div>

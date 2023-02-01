@@ -25,7 +25,7 @@ onMounted(() => {
               </div>
               <div class="flex bg-white">
                 <!-- TODO : 入力モード、表示モードをpropで切り替えられるようにする -->
-                <BaseInfo />
+                <BaseInfo :inputMode="true"/>
               </div>
             </div>
             <div class="p-3 sm:p-3">
