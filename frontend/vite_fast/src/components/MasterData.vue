@@ -18,7 +18,7 @@ defineProps<{
 
     </div>
     <div class="flex flex-wrap w-full">
-      <MasterDataItem :name=item.name v-for="item of list" :key="item.name" />
+      <MasterDataItem :value="item.value" :name=item.name v-for="item of list" :key="item.name" />
     </div>
   </div>
 

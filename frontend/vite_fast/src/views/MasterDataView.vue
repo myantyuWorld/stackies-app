@@ -8,50 +8,64 @@ const click_regist = () => {
 
 const languageList = ref([
   {
-    name: "Java"
+    name: "Java",
+    value:"1",
   },
   {
-    name: "C#"
+    name: "C#",
+    value:"2",
   },
   {
-    name: "Python"
+    name: "Python",
+    value:"3",
   },
   {
-    name: "Javascript"
+    name: "Javascript",
+    value:"4",
   },
   {
-    name: "aaa"
+    name: "aaa",
+    value:"5",
   },
   {
-    name: "bbb"
+    name: "bbb",
+    value:"6",
   },
   {
-    name: "ccc"
+    name: "ccc",
+    value:"7",
   },
 ])
 const toolList = ref([
   {
-    name: "Docker"
+    name: "Docker",
+    value:"1",
   },
   {
-    name: "AWS CLI"
+    name: "AWS CLI",
+    value:"2",
   },
   {
-    name: "VS Code"
+    name: "VS Code",
+    value:"3",
   },
 ])
 const infraList = ref([
   {
-    name: "Windows"
+    name: "Windows",
+    value:"1",
   },
   {
-    name: "Linux"
+    name: "Linux",
+    value:"2",
   },
   {
-    name: "AWS ECS"
+    name: "AWS ECS",
+    value:"3",
   },
 ])
 
+// TODO : Vue.js: 子コンポーネントのチェックボックスを双方向にデータバインディングする | https://qiita.com/FumioNonaka/items/709360072e9f645447f8
 </script>
 
 <template>
