@@ -15,12 +15,12 @@ onMounted(() => {
 
 const baseinfo = {
   initial: "あああ",
-  birth_date:"1990-08-20",
-  last_educational_background:"ほげほげ専門学校",
-  qualification:"応用情報技術者, AWS CLF",
-  postcode:"7310102",
-  address:"広島県広島市hogehogeのほげ",
-  self_pr:"あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+  birth_date: "1990-08-20",
+  last_educational_background: "ほげほげ専門学校",
+  qualification: "応用情報技術者, AWS CLF",
+  postcode: "7310102",
+  address: "広島県広島市hogehogeのほげ",
+  self_pr: "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
 }
 
 </script>
@@ -36,11 +36,12 @@ const baseinfo = {
               <div class="space-y-4">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
-
               <div class="flex bg-white">
-                <BaseInfo :inputMode="false" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date" :last_educational_background="baseinfo.last_educational_background" :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address" :self_pr="baseinfo.self_pr"/>
+                <BaseInfo :inputMode="false" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date"
+                  :last_educational_background="baseinfo.last_educational_background"
+                  :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address"
+                  :self_pr="baseinfo.self_pr" />
               </div>
-
             </div>
             <div class="p-6 sm:p-6">
 
@@ -82,12 +83,12 @@ const baseinfo = {
                       </div>
                       <!-- Modal body -->
                       <div class="p-6 space-y-6">
-                        <ExperienceRating :experienceRate="4" itemName="Java"/>
-                        <ExperienceRating :experienceRate="4" itemName="C#"/>
-                        <ExperienceRating :experienceRate="3" itemName="Python"/>
-                        <ExperienceRating :experienceRate="2" itemName="C++"/>
-                        <ExperienceRating :experienceRate="3" itemName="Django4.0"/>
-                        <ExperienceRating :experienceRate="4" itemName="JQuery"/>
+                        <ExperienceRating :experienceRate="4" itemName="Java" />
+                        <ExperienceRating :experienceRate="4" itemName="C#" />
+                        <ExperienceRating :experienceRate="3" itemName="Python" />
+                        <ExperienceRating :experienceRate="2" itemName="C++" />
+                        <ExperienceRating :experienceRate="3" itemName="Django4.0" />
+                        <ExperienceRating :experienceRate="4" itemName="JQuery" />
                       </div>
                       <!-- Modal footer -->
                       <div
@@ -121,9 +122,9 @@ const baseinfo = {
                         経験
                       </label>
 
-                      <ExperienceRating :experienceRate="3" itemName="Java"/>
-                      <ExperienceRating :experienceRate="2" itemName="Docker"/>
-                      <ExperienceRating :experienceRate="3" itemName="JavaScript"/>
+                      <ExperienceRating :experienceRate="3" itemName="Java" />
+                      <ExperienceRating :experienceRate="2" itemName="Docker" />
+                      <ExperienceRating :experienceRate="3" itemName="JavaScript" />
                     </div>
 
                     <div class="mt-10">

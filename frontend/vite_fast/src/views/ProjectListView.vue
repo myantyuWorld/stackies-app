@@ -13,12 +13,12 @@ onMounted(() => {
 
 const baseinfo = {
   initial: "あああ",
-  birth_date:"1990-08-20",
-  last_educational_background:"ほげほげ専門学校",
-  qualification:"応用情報技術者, AWS CLF",
-  postcode:"7310102",
-  address:"広島県広島市hogehogeのほげ",
-  self_pr:"あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+  birth_date: "1990-08-20",
+  last_educational_background: "ほげほげ専門学校",
+  qualification: "応用情報技術者, AWS CLF",
+  postcode: "7310102",
+  address: "広島県広島市hogehogeのほげ",
+  self_pr: "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
 }
 
 </script>
@@ -34,8 +34,10 @@ const baseinfo = {
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
               <div class="flex bg-white">
-                <!-- TODO : 入力モード、表示モードをpropで切り替えられるようにする -->
-                <BaseInfo :inputMode="true" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date" :last_educational_background="baseinfo.last_educational_background" :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address" :self_pr="baseinfo.self_pr"/>
+                <BaseInfo :inputMode="true" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date"
+                  :last_educational_background="baseinfo.last_educational_background"
+                  :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address"
+                  :self_pr="baseinfo.self_pr" />
               </div>
             </div>
             <div class="p-3 sm:p-3">
