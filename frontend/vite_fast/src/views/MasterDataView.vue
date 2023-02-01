@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import MasterData from '../components/MasterData.vue'
 import { ref } from 'vue';
+import router from '@/router';
+import MasterData from '../components/MasterData.vue'
+const click_regist = () => {
+  router.push('menu')
+}
 
 const languageList = ref([
   {
@@ -71,8 +75,7 @@ const infraList = ref([
               <MasterData :list=infraList name="動作環境" itemBadgeColor="lime" />
 
             </div>
-            <input type="submit" value="更新"
-              class="m-3 p-3 bg-green-500 text-white w-full rounded hover:bg-green-600">
+              <button @click="click_regist" class="m-3 p-3 bg-green-500 text-white w-full rounded hover:bg-green-600">更新</button>
           </div>
 
         </div>

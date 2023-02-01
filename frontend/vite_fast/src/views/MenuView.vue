@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
                                     <div class="relative flex items-center space-x-4 justify-center">
                                         <RouterLink to="/master">
                                             <span
-                                                class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">マスタ管理</span>
+                                                class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">経験技術登録</span>
                                         </RouterLink>
                                     </div>
                                 </button>

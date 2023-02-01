@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import MasterData from '../components/MasterData.vue'
-import MasterDataItem from '../components/MasterDataItem.vue'
-import Rating from '../components/Rating.vue'
+import router from '@/router';
+import { onMounted } from 'vue'
+import { initModals } from 'flowbite'
 import ExperienceRating from '../components/ExperienceRating.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 
-import { onMounted } from 'vue'
-import { initModals } from 'flowbite'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
   initModals();
 })
+
+const click_regist = () => {
+  router.push('menu')
+}
 
 const baseinfo = {
   initial: "あああ",
@@ -48,8 +50,8 @@ const baseinfo = {
               <div class="space-y-0">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">
                   経験技術
-                  <button data-modal-toggle="defaultModal" data-modal-target="defaultModal"
-                    class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">ToggleModal</button>
+                  <!-- <button data-modal-toggle="defaultModal" data-modal-target="defaultModal"
+                    class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">ToggleModal</button> -->
                 </h2>
 
                 <!--  -->
@@ -59,12 +61,10 @@ const baseinfo = {
                 <!--  -->
 
                 <!-- Main modal -->
-                <div id="defaultModal" tabindex="-1" aria-hidden="true"
+                <!-- <div id="defaultModal" tabindex="-1" aria-hidden="true"
                   class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                   <div class="relative w-full h-full max-w-2xl md:h-auto">
-                    <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow-xl dark:bg-gray-700">
-                      <!-- Modal header -->
                       <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                           経験技術
@@ -81,7 +81,6 @@ const baseinfo = {
                           <span class="sr-only">Close modal</span>
                         </button>
                       </div>
-                      <!-- Modal body -->
                       <div class="p-6 space-y-6">
                         <ExperienceRating :experienceRate="4" itemName="Java" />
                         <ExperienceRating :experienceRate="4" itemName="C#" />
@@ -90,7 +89,6 @@ const baseinfo = {
                         <ExperienceRating :experienceRate="3" itemName="Django4.0" />
                         <ExperienceRating :experienceRate="4" itemName="JQuery" />
                       </div>
-                      <!-- Modal footer -->
                       <div
                         class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <button data-modal-hide="defaultModal" type="button"
@@ -100,7 +98,7 @@ const baseinfo = {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!--  -->
                 <!--  -->
                 <!-- Modal -->
@@ -128,8 +126,7 @@ const baseinfo = {
                     </div>
 
                     <div class="mt-10">
-                      <input type="submit" value="基本情報登録"
-                        class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">
+                      <button @click="click_regist" class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">登録</button>
                     </div>
                   </form>
 
