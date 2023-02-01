@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import InputComponent from './InputComponent.vue'
+defineProps<{
+  inputMode: boolean,
+  initial: string,
+  birth_date: string,
+  last_educational_background: string,
+  qualification: string,
+  postcode: string,
+  address: string,
+  self_pr: string
+}>()
+</script>
 <template>
   <div class="w-full px-4 shadow-none flex flex-wrap ">
     <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
@@ -6,9 +19,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           イニシャル
         </label>
-        <input type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="" disabled value="Y O">
+        <InputComponent :input-mode="inputMode" :placeholder="イニシャル" :value="initial" />
       </div>
 
     </div>
@@ -18,9 +29,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           生年月日
         </label>
-        <input type="date"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="生年月日" disabled>
+        <InputComponent :input-mode="inputMode" :placeholder="生年月日" :value="birth_date" />
       </div>
 
     </div>
@@ -30,9 +39,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           最終学歴
         </label>
-        <input type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="最終学歴" disabled>
+        <InputComponent :input-mode="inputMode" :placeholder="最終学歴" :value="last_educational_background" />
       </div>
 
     </div>
@@ -41,9 +48,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           資格
         </label>
-        <input type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="資格" disabled>
+        <InputComponent :input-mode="inputMode" :placeholder="資格" :value="qualification" />
       </div>
 
     </div>
@@ -52,9 +57,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           郵便番号
         </label>
-        <input type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="住所" disabled>
+        <InputComponent :input-mode="inputMode" :placeholder="郵便番号" :value="postcode" />
       </div>
 
     </div>
@@ -64,9 +67,7 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           住所
         </label>
-        <input type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="住所" disabled>
+        <InputComponent :input-mode="inputMode" :placeholder="住所" :value="address" />
       </div>
 
     </div>
@@ -79,8 +80,10 @@
           自己PR
         </label>
         <textarea type="text"
-          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
-          placeholder="Email" disabled></textarea>
+          class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"
+          placeholder="Email" :value="self_pr"
+          :class="{'disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none' : inputMode}"
+          :disabled="inputMode"></textarea>
       </div>
 
     </div>
