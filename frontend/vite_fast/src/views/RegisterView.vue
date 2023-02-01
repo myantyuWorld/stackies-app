@@ -3,6 +3,7 @@ import router from '@/router';
 import { onMounted } from 'vue'
 import { initModals } from 'flowbite'
 import ExperienceRating from '../components/ExperienceRating.vue'
+import Rating from '../components/Rating.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 
 
@@ -53,6 +54,64 @@ const baseinfo = {
                   <!-- <button data-modal-toggle="defaultModal" data-modal-target="defaultModal"
                     class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">ToggleModal</button> -->
                 </h2>
+                <div id="accordion-flush" data-accordion="collapse"
+                  data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                  data-inactive-classes="text-gray-500 dark:text-gray-400">
+                  <h2 id="accordion-flush-heading-1">
+                    <button type="button"
+                      class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
+                      data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
+                      aria-controls="accordion-flush-body-1">
+                      <span>技術レベルの目安</span>
+                      <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                  </h2>
+                  <div id="accordion-flush-body-1" class="hidden bg-gray-50 " aria-labelledby="accordion-flush-heading-1">
+                    <div class="flex flex-wrap justify-items-center">
+                      <div class="w-1/4 p-1">
+                        <Rating rate="5" />
+                      </div>
+                      <div class="w-1/4 p-1">
+                        指導可能
+                      </div>
+                      <div class="w-1/4 p-1">
+                        <Rating rate="4" />
+                      </div>
+                      <div class="w-1/4 p-1">
+                        技術精通
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap justify-items-center">
+                      <div class="w-1/4 p-1">
+                        <Rating rate="3" />
+                      </div>
+                      <div class="w-1/4 p-1">
+                        開発可能
+                      </div>
+                      <div class="w-1/4 p-1">
+                        <Rating rate="2" />
+                      </div>
+                      <div class="w-1/4 p-1">
+                        開発経験あり
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap justify-items-center">
+                      <div class="w-1/4 p-1">
+                        <Rating rate="1" />
+                      </div>
+                      <div class="w-1/4 p-1">
+                        知識レベル
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
 
                 <!--  -->
                 <!--  -->
@@ -126,7 +185,8 @@ const baseinfo = {
                     </div>
 
                     <div class="mt-10">
-                      <button @click="click_regist" class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">登録</button>
+                      <button @click="click_regist"
+                        class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">登録</button>
                     </div>
                   </form>
 
