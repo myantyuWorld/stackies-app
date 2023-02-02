@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { onMounted } from 'vue'
 import { initDropdowns, } from 'flowbite'
 
@@ -11,15 +12,39 @@ onMounted(() => {
   initDropdowns();
 })
 
-const baseinfo = {
-  initial: "あああ",
-  birth_date: "1990-08-20",
-  last_educational_background: "ほげほげ専門学校",
-  qualification: "応用情報技術者, AWS CLF",
-  postcode: "7310102",
-  address: "広島県広島市hogehogeのほげ",
-  self_pr: "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+const data = {
+  baseinfo: {
+    initial: "あああ",
+    birth_date: "1990-08-20",
+    last_educational_background: "ほげほげ専門学校",
+    qualification: "応用情報技術者, AWS CLF",
+    postcode: "7310102",
+    address: "広島県広島市hogehogeのほげ",
+    self_pr: "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+  },
+  experienceRateInfo: [
+    {
+      id: "1",
+      name: "Java",
+      level: "3",
+    },
+    {
+      id: "2",
+      name: "C#",
+      level: "3",
+    },
+    {
+      id: "3",
+      name: "javascript",
+      level: "3",
+    }
+  ]
 }
+const baseinfo = ref({})
+const experienceRate = ref({})
+
+baseinfo.value = data.baseinfo
+experienceRate.value = data.experienceRateInfo
 
 </script>
 
@@ -34,10 +59,7 @@ const baseinfo = {
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="true" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date"
-                  :last_educational_background="baseinfo.last_educational_background"
-                  :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address"
-                  :self_pr="baseinfo.self_pr" />
+                <BaseInfo :inputMode="true" :base-info="baseinfo"/>
               </div>
             </div>
             <div class="p-3 sm:p-3">

@@ -62,7 +62,6 @@ experienceRate.value = data.experienceRateInfo
 
               <div class="space-y-4">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
-                {{ baseinfo }}
               </div>
               <div class="flex bg-white">
                 <BaseInfo :inputMode="false" :baseInfo="baseinfo" />

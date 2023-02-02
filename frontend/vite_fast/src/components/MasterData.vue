@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// import MasterDataItem from './MasterDataItem.vue'
 
 const data = defineProps<{
   itemBadgeColor: string,
