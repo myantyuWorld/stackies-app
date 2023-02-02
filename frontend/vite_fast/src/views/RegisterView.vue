@@ -13,7 +13,8 @@ onMounted(() => {
 })
 
 const click_regist = () => {
-  router.push('menu')
+  console.log(data.value)
+  // router.push('menu')
 }
 
 const data = ref({
@@ -24,7 +25,7 @@ const data = ref({
     qualification: "応用情報技術者, AWS CLF",
     postcode: "7310102",
     address: "広島県広島市hogehogeのほげ",
-    self_pr: "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+    self_pr: ""
   },
   experienceRateInfo: [
     {
@@ -136,24 +137,22 @@ const data = ref({
               <div class="flex bg-white">
                 <div class="w-full px-4 shadow-none">
                   <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
-                  <form action="#" class="p-0">
 
-                    <div class="mt-5">
-                      <!-- tabs -->
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password">
-                        経験
-                      </label>
-                      <div v-for="item in data.experienceRateInfo" :key="item.id">
-                        <ExperienceRating :rate="item" v-model="item.level" />
-                      </div>
+                  <div class="mt-5">
+                    <!-- tabs -->
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                      for="grid-password">
+                      経験
+                    </label>
+                    <div v-for="item in data.experienceRateInfo" :key="item.id">
+                      <ExperienceRating :rate="item" v-model="item.level" />
                     </div>
+                  </div>
 
-                    <div class="mt-10">
-                      <button @click="click_regist"
-                        class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">登録</button>
-                    </div>
-                  </form>
+                  <div class="mt-10">
+                    <button @click="click_regist"
+                      class="py-3 bg-green-500 text-white w-full rounded hover:bg-green-600">登録</button>
+                  </div>
 
                 </div>
               </div>
