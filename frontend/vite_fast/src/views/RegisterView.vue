@@ -55,10 +55,8 @@ const data = ref({
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
             <div class="p-6 sm:p-6">
-              {{ data }}
-
               <div class="space-y-4">
-                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">基本能力登録</h2>
               </div>
               <div class="flex bg-white">
                 <BaseInfo :inputMode="false" :baseInfo="data.baseinfo" />

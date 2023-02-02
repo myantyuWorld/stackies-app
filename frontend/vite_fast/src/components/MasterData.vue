@@ -19,7 +19,6 @@ itemList.value = data.list
         <!-- <button
           class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">Add</button> -->
       </h2>
-      {{ itemList }}
     </div>
     <div class="flex flex-wrap w-full">
       <!-- // TODO: MasterDataItemのチェック状態を、"checkedValues"に格納できない -->
