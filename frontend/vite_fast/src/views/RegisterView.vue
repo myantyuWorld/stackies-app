@@ -16,7 +16,7 @@ const click_regist = () => {
   router.push('menu')
 }
 
-const data = ref({
+const data = {
   baseinfo: {
     initial: "あああ",
     birth_date: "1990-08-20",
@@ -43,9 +43,12 @@ const data = ref({
       level: "3",
     }
   ]
-})
-const baseinfo = data.value.baseinfo
-const experienceRate = data.value.experienceRateInfo
+}
+const baseinfo = ref({})
+const experienceRate = ref({})
+
+baseinfo.value = data.baseinfo
+experienceRate.value = data.experienceRateInfo
 
 </script>
 
@@ -59,13 +62,10 @@ const experienceRate = data.value.experienceRateInfo
 
               <div class="space-y-4">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
-                {{ data }}
+                {{ baseinfo }}
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="false" :initial="baseinfo.initial" :birth_date="baseinfo.birth_date"
-                  :last_educational_background="baseinfo.last_educational_background"
-                  :qualification="baseinfo.qualification" :postcode="baseinfo.postcode" :address="baseinfo.address"
-                  :self_pr="baseinfo.self_pr" />
+                <BaseInfo :inputMode="false" :baseInfo="baseinfo" />
               </div>
             </div>
             <div class="p-6 sm:p-6">
