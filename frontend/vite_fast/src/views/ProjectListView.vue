@@ -40,12 +40,6 @@ const data = {
     }
   ]
 }
-const baseinfo = ref({})
-const experienceRate = ref({})
-
-baseinfo.value = data.baseinfo
-experienceRate.value = data.experienceRateInfo
-
 </script>
 
 <template>
@@ -59,7 +53,7 @@ experienceRate.value = data.experienceRateInfo
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="true" :base-info="baseinfo"/>
+                <BaseInfo :inputMode="true" :base-info="data.baseinfo" />
               </div>
             </div>
             <div class="p-3 sm:p-3">
@@ -67,10 +61,9 @@ experienceRate.value = data.experienceRateInfo
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                 経験
               </label>
-
-              <ExperienceRating :experienceRate="4" itemName="Java" />
-              <ExperienceRating :experienceRate="2" itemName="Docker" />
-              <ExperienceRating :experienceRate="4" itemName="JavaScript" />
+              <div v-for="item in data.experienceRateInfo" :key="item.id">
+                <ExperienceRating :is-show="false" :rate="item" v-model="item.level" />
+              </div>
             </div>
             <div class="p-3 sm:p-3">
 

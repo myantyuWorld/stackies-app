@@ -143,7 +143,7 @@ const data = ref({
                       経験
                     </label>
                     <div v-for="item in data.experienceRateInfo" :key="item.id">
-                      <ExperienceRating :rate="item" v-model="item.level" />
+                      <ExperienceRating :is-show="true" :rate="item" v-model="item.level" />
                     </div>
                   </div>
 
