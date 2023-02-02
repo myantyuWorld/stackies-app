@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import InputComponent from './InputComponent.vue'
 
 defineProps<{
   baseInfo:object
 }>()
-
-
 </script>
 <template>
   <div class="w-full px-4 shadow-none flex flex-wrap ">
     <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
-    {{ baseInfo }}
     <div class="p-1 w-1/12">
       <div>
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">

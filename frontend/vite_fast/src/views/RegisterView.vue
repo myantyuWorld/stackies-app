@@ -16,7 +16,7 @@ const click_regist = () => {
   router.push('menu')
 }
 
-const data = {
+const data = ref({
   baseinfo: {
     initial: "あああ",
     birth_date: "1990-08-20",
@@ -43,12 +43,7 @@ const data = {
       level: "3",
     }
   ]
-}
-const baseinfo = ref({})
-const experienceRate = ref({})
-
-baseinfo.value = data.baseinfo
-experienceRate.value = data.experienceRateInfo
+})
 
 </script>
 
@@ -59,12 +54,13 @@ experienceRate.value = data.experienceRateInfo
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
             <div class="p-6 sm:p-6">
+              {{ data }}
 
               <div class="space-y-4">
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="false" :baseInfo="baseinfo" />
+                <BaseInfo :inputMode="false" :baseInfo="data.baseinfo" />
               </div>
             </div>
             <div class="p-6 sm:p-6">
@@ -148,8 +144,8 @@ experienceRate.value = data.experienceRateInfo
                         for="grid-password">
                         経験
                       </label>
-                      <div v-for="item in experienceRate" :key="item.id">
-                        <ExperienceRating :experienceRate="item.level" :itemName="item.name" />
+                      <div v-for="item in data.experienceRateInfo" :key="item.id">
+                        <ExperienceRating :rate="item" v-model="item.level" />
                       </div>
                     </div>
 
