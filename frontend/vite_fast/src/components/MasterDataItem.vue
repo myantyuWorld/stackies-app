@@ -1,8 +1,11 @@
 <script setup lang="ts">
-defineProps<{
+import { ref } from 'vue';
+
+const data = defineProps<{
   name:string,
   value:string,
 }>()
+
 // $emit('checkValue', $event.target.value)
 // emit = 子から、親に値を渡すときに使用
 // こういうイベントで、こういう値を渡すので、親側で、それをフックするイベントで値を取得する、という感じ
