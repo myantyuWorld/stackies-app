@@ -15,7 +15,7 @@ const checkItem = (checked : string) => {
 const itemList = ref({})
 itemList.value = data.list
 
-const checked = ref([])
+const checkedValues = ref([])
 </script>
 <template>
   <div class="rounded-xl bg-white shadow-xl p-6 my-6">
@@ -25,10 +25,10 @@ const checked = ref([])
         <!-- <button
           class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">Add</button> -->
       </h2>
-
+      {{ checkedValues }}
     </div>
     <div class="flex flex-wrap w-full">
-      <MasterDataItem :value="item.value" :name=item.name v-for="item of itemList" :key="item.name" @checkValue="checkItem" />
+      <MasterDataItem :value="item.value" :name=item.name v-for="item of itemList" :key="item.name" @checkValue="checkItem"/>
     </div>
   </div>
 
