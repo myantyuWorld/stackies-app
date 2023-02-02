@@ -3,9 +3,9 @@ import { ref } from 'vue';
 import router from '@/router';
 import MasterData from '../components/MasterData.vue'
 const click_regist = () => {
-  console.log(languageList.value)
-  console.log(toolList.value)
-  console.log(infraList.value)
+  console.log(languageList.value.filter(x => x.checked))
+  console.log(toolList.value.filter(x => x.checked))
+  console.log(infraList.value.filter(x => x.checked))
   // router.push('menu')
 }
 
