@@ -1,11 +1,21 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import MasterDataItem from './MasterDataItem.vue'
 
-defineProps<{
+const data = defineProps<{
   itemBadgeColor: string,
   name: string,
   list: object
 }>()
+
+const checkItem = (checked : string) => {
+  console.log(checked)
+}
+
+const itemList = ref({})
+itemList.value = data.list
+
+const checked = ref([])
 </script>
 <template>
   <div class="rounded-xl bg-white shadow-xl p-6 my-6">
@@ -18,7 +28,7 @@ defineProps<{
 
     </div>
     <div class="flex flex-wrap w-full">
-      <MasterDataItem :value="item.value" :name=item.name v-for="item of list" :key="item.name" />
+      <MasterDataItem :value="item.value" :name=item.name v-for="item of itemList" :key="item.name" @checkValue="checkItem" />
     </div>
   </div>
 
