@@ -200,8 +200,6 @@ const projectInfo = ref({
                   業種
                 </label>
                 <InputComponent :input-mode="false" placeholder="" :value="projectInfo.industries" v-model="projectInfo.industries" />
-                <!-- <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -212,8 +210,6 @@ const projectInfo = ref({
                   システム名
                 </label>
                 <InputComponent :input-mode="false" placeholder="" :value="projectInfo.systemName" v-model="projectInfo.systemName" />
-                <!-- <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -223,7 +219,7 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   システム概要
                 </label>
-                <textarea type="text"
+                <textarea type="text" v-model="projectInfo.businessOverview"
                   class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"></textarea>
               </div>
 
@@ -234,8 +230,6 @@ const projectInfo = ref({
                   言語
                 </label>
                 <InputComponent :input-mode="false" placeholder="" :value="projectInfo.language" v-model="projectInfo.language" />
-                <!-- <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -245,8 +239,6 @@ const projectInfo = ref({
                   DB/Tool
                 </label>
                 <InputComponent :input-mode="false" placeholder="" :value="projectInfo.tools" v-model="projectInfo.tools" />
-                <!-- <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -257,8 +249,6 @@ const projectInfo = ref({
                   動作環境
                 </label>
                 <InputComponent :input-mode="false" placeholder="" :value="projectInfo.infra" v-model="projectInfo.infra" />
-                <!-- <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -350,8 +340,6 @@ const projectInfo = ref({
                     役割
                   </label>
                   <InputComponent :input-mode="false" placeholder="" :value="projectInfo.role" v-model="projectInfo.role" />
-                  <!-- <input type="text"
-                    class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
                 </div>
               </div>
 
