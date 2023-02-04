@@ -1,9 +1,10 @@
 <script setup lang="ts">
-// defineProps<{
-//   itemBadgeColor: string,
-//   name: string
-// }>()
 import ProjectListDetail from './ProjectListDetail.vue'
+
+defineProps<{
+  businessHistories: Object
+}>()
+
 </script>
 <template>
   <div class="m-4">
@@ -23,6 +24,10 @@ import ProjectListDetail from './ProjectListDetail.vue'
 
         <!-- SP版にした際に、表示する場合、明細件数と同じ数のヘッダーが必要 -->
         <tr class="bg-gray-100 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+          <th colspan="2" class="p-4 text-center text-sm">システム名</th>
+          <th colspan="12" class="p-4 text-center text-sm">業務概要</th>
+        </tr>
+        <tr class="bg-gray-100 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
           <th rowspan="2" class="p-2 text-center text-sm">業種</th>
           <th rowspan="2" class="p-2 text-center text-sm">期間</th>
           <th rowspan="2" class="p-2 text-center text-sm">言語</th>
@@ -40,15 +45,11 @@ import ProjectListDetail from './ProjectListDetail.vue'
           <th rowspan="" class="p-2 text-center text-sm">評価</th>
           <th rowspan="" class="p-2 text-center text-sm">運用</th>
         </tr>
-        <tr class="bg-gray-100 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-          <th colspan="14" class="p-4 text-center text-sm">業務概要</th>
-        </tr>
+
 
       </thead>
       <tbody class="flex-1 sm:flex-none">
-        <ProjectListDetail />
-        <ProjectListDetail />
-        <ProjectListDetail />
+        <ProjectListDetail v-for="item in businessHistories" :key="item" :business-history="item" />
       </tbody>
     </table>
   </div>
