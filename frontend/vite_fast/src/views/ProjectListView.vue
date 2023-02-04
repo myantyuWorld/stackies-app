@@ -5,6 +5,7 @@ import { initDropdowns, initModals } from 'flowbite'
 import ProjectListTable from '../components/ProjectListTable.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 import ExperienceRating from '../components/ExperienceRating.vue'
+import InputComponent from '../components/InputComponent.vue'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -125,8 +126,7 @@ const data = {
                   <h2 class="mb-0 text-2xl text-cyan-900 font-bold">
                     業務履歴
                   </h2>
-                  <button type="button"
-                    data-modal-target="staticModal" data-modal-toggle="staticModal"
+                  <button type="button" data-modal-target="staticModal" data-modal-toggle="staticModal"
                     class="ml-3 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">追加</button>
                 </div>
               </div>
@@ -164,16 +164,160 @@ const data = {
             </button>
           </div>
           <!-- Modal body -->
-          <div class="p-6 space-y-6">
-            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              With less than a month to go before the European Union enacts new consumer privacy laws for its citizens,
-              companies around the world are updating their terms of service agreements to comply.
-            </p>
-            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant
-              to ensure a common set of data rights in the European Union. It requires organizations to notify users as
-              soon as possible of high-risk data breaches that could personally affect them.
-            </p>
+          <div class="w-full px-4 shadow-none flex flex-wrap ">
+            <div class="p-1 w-1/2">
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  業種
+                </label>
+                <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+              </div>
+
+            </div>
+            <div class="p-1 w-1/2">
+
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  システム名
+                </label>
+                <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+              </div>
+
+            </div>
+            <div class="p-1 w-full">
+
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  システム概要
+                </label>
+                <textarea type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"></textarea>
+              </div>
+
+            </div>
+            <div class="p-1 w-full">
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  言語
+                </label>
+                <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+              </div>
+
+            </div>
+            <div class="p-1 w-full">
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  DB/Tool
+                </label>
+                <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+              </div>
+
+            </div>
+            <div class="p-1 w-full">
+
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  動作環境
+                </label>
+                <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+              </div>
+
+            </div>
+
+
+            <div class="p-1 w-full">
+
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  作業工程
+                </label>
+                <textarea type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"></textarea>
+              </div>
+
+            </div>
+            <div class="p-1 w-full">
+
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                  役割
+                </label>
+
+                <ul class="grid w-full gap-6 md:grid-cols-4">
+                  <li>
+                    <input type="checkbox" id="react-option" value="" class="hidden peer" required="">
+                    <label for="react-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">要件定義</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="flowbite-option" value="" class="hidden peer">
+                    <label for="flowbite-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">基本設計</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
+                    <label for="angular-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">詳細設計</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
+                    <label for="angular-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">コーディング</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
+                    <label for="angular-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">単体評価</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
+                    <label for="angular-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">結合評価</div>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
+                    <label for="angular-option"
+                      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                      <div class="block">
+                        <div class="w-full text-sm">運用保守</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+
           </div>
           <!-- Modal footer -->
           <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
