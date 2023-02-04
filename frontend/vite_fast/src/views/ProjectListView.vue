@@ -13,6 +13,10 @@ onMounted(() => {
   initModals();
 })
 
+const clickAddProject = () => {
+  console.log(projectInfo.value)
+}
+
 const data = {
   baseinfo: {
     initial: "あああ",
@@ -94,6 +98,31 @@ const data = {
   ]
 
 }
+
+const projectInfo = ref({
+  industries: "",
+  systemName: "",
+  period: "",
+  businessOverview: "",
+  language: [
+  ],
+  tools: [
+  ],
+  infra: [
+    "",
+  ],
+  workProcess: {
+    rd: false,
+    bd: false,
+    dd: false,
+    cd: false,
+    ut: false,
+    it: false,
+    op: false,
+  },
+  role: ""
+})
+
 </script>
 
 <template>
@@ -151,7 +180,7 @@ const data = {
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-              Static modal
+              対応案件を追加
             </h3>
             <button type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -170,8 +199,9 @@ const data = {
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   業種
                 </label>
-                <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.industries" v-model="projectInfo.industries" />
+                <!-- <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -181,8 +211,9 @@ const data = {
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   システム名
                 </label>
-                <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.systemName" v-model="projectInfo.systemName" />
+                <!-- <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -202,8 +233,9 @@ const data = {
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   言語
                 </label>
-                <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.language" v-model="projectInfo.language" />
+                <!-- <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -212,8 +244,9 @@ const data = {
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   DB/Tool
                 </label>
-                <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.tools" v-model="projectInfo.tools" />
+                <!-- <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
@@ -223,35 +256,26 @@ const data = {
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   動作環境
                 </label>
-                <input type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800">
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.infra" v-model="projectInfo.infra" />
+                <!-- <input type="text"
+                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
               </div>
 
             </div>
 
 
-            <div class="p-1 w-full">
+
+            <div class="p-1 w-full mb-2">
 
               <div>
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   作業工程
                 </label>
-                <textarea type="text"
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"></textarea>
-              </div>
-
-            </div>
-            <div class="p-1 w-full">
-
-              <div>
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  役割
-                </label>
 
                 <ul class="grid w-full gap-6 md:grid-cols-4">
                   <li>
-                    <input type="checkbox" id="react-option" value="" class="hidden peer" required="">
-                    <label for="react-option"
+                    <input type="checkbox" id="aaa" v-model="projectInfo.workProcess.rd" class="hidden peer" required="">
+                    <label for="aaa"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">要件定義</div>
@@ -259,8 +283,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="flowbite-option" value="" class="hidden peer">
-                    <label for="flowbite-option"
+                    <input type="checkbox" id="bbb" v-model="projectInfo.workProcess.bd" class="hidden peer">
+                    <label for="bbb"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">基本設計</div>
@@ -268,8 +292,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
-                    <label for="angular-option"
+                    <input type="checkbox" id="ccc" v-model="projectInfo.workProcess.dd" class="hidden peer">
+                    <label for="ccc"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">詳細設計</div>
@@ -277,8 +301,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
-                    <label for="angular-option"
+                    <input type="checkbox" id="ddd" v-model="projectInfo.workProcess.cd" class="hidden peer">
+                    <label for="ddd"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">コーディング</div>
@@ -286,8 +310,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
-                    <label for="angular-option"
+                    <input type="checkbox" id="eee" v-model="projectInfo.workProcess.ut" class="hidden peer">
+                    <label for="eee"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">単体評価</div>
@@ -295,8 +319,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
-                    <label for="angular-option"
+                    <input type="checkbox" id="fff" v-model="projectInfo.workProcess.it" class="hidden peer">
+                    <label for="fff"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">結合評価</div>
@@ -304,8 +328,8 @@ const data = {
                     </label>
                   </li>
                   <li>
-                    <input type="checkbox" id="angular-option" value="" class="hidden peer">
-                    <label for="angular-option"
+                    <input type="checkbox" id="ggg" v-model="projectInfo.workProcess.op" class="hidden peer">
+                    <label for="ggg"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
                         <div class="w-full text-sm">運用保守</div>
@@ -318,14 +342,31 @@ const data = {
 
             </div>
 
+            <div class="p-1 w-full">
+
+              <div>
+                <div>
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                    役割
+                  </label>
+                  <InputComponent :input-mode="false" placeholder="" :value="projectInfo.role" v-model="projectInfo.role" />
+                  <!-- <input type="text"
+                    class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"> -->
+                </div>
+              </div>
+
+            </div>
+
           </div>
           <!-- Modal footer -->
           <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <button 
+              type="button" 
+              data-modal-hide="staticModal"
+              @click="clickAddProject"
+              class=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">追加</button>
             <button data-modal-hide="staticModal" type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-              accept</button>
-            <button data-modal-hide="staticModal" type="button"
-              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">キャンセル</button>
           </div>
         </div>
       </div>
