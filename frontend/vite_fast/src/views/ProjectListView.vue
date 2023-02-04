@@ -38,7 +38,60 @@ const data = {
       name: "javascript",
       level: "3",
     }
+  ],
+  businessHistories: [
+    {
+      industries: "建設",
+      systemName: "AAA管理システム",
+      period: "2021/01/01(22021/03/30)",
+      businessOverview: "AAAの管理システムを作成、BBBというパッケージソフトとデータ連携を行い、hogehogeしたもの",
+      language: [
+        "Java", "JQuery",
+      ],
+      tools: [
+        "Copilot", "Fargate", "ECS", "Django",
+      ],
+      infra: [
+        "Docker",
+      ],
+      workProcess: {
+        rd: false,
+        bd: true,
+        dd: true,
+        cd: true,
+        ut: true,
+        it: true,
+        op: false,
+      },
+      role: "member"
+    },
+    {
+      industries: "情報通信",
+      systemName: "遠隔監視支援システム",
+      period: "2021/01/01(22021/03/30)",
+      businessOverview: "AIの解析結果を、フロント（Vue.js）に表示したもの、Vuetifyを使用",
+      language: [
+        "Vue.js", "Python", "graphql"
+      ],
+      tools: [
+        "Nuxt.js", "Flask",
+      ],
+      infra: [
+        "Linux",
+      ],
+      workProcess: {
+        rd: false,
+        bd: true,
+        dd: true,
+        cd: true,
+        ut: true,
+        it: true,
+        op: false,
+      },
+      role: "member"
+    }
   ]
+
 }
 </script>
 
@@ -74,7 +127,7 @@ const data = {
               </div>
               <div class="flex bg-white">
                 <div class="w-full px-4 shadow-none">
-                  <ProjectListTable />
+                  <ProjectListTable :business-histories="data.businessHistories" />
                 </div>
               </div>
             </div>
