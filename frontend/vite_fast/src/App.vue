@@ -1,28 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Stepper from './components/Stepper.vue'
 </script>
 
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-  </header> -->
-  <!-- <div class="wrapper">
-    <HelloWorld msg="You did it!" />
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav>
-  </div> -->
-  <div class="bg-gradient-to-br from-sky-100 to-gray-100">
+  <div class="bg-gradient-to-br ">
     <div class="mx-auto max-w-7xl px-6">
-      <div class="flex items-center justify-between border-b-2 border-gray-300 py-6 md:justify-start md:space-x-10">
-        <div class="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
-            <span class="sr-only">Your Company</span>
-            <img alt="Vue logo" class="h-8 w-auto sm:h-10" src="@/assets/sample.jpeg" />
-          </a>
-          <RouterLink to="/menu">Menu</RouterLink>
+      <div class="flex items-center justify-between border-b-2 border-gray-300  md:justify-start md:space-x-10">
+        <div class="flex">
+          <div class="w-1/2">
+            <a href="#">
+              <span class="sr-only">Your Company</span>
+              <img alt="Vue logo" class="h-8 w-auto sm:h-10" src="@/assets/sample.jpeg" />
+            </a>
+          </div>
+          <div class="w-1/3">
+            <h1>Stackies!</h1>
+          </div>
         </div>
         <div class="-my-2 -mr-2 md:hidden">
           <button type="button"
@@ -45,10 +39,18 @@ import HelloWorld from './components/HelloWorld.vue'
         </div>
       </div>
     </div>
+    
+    <!-- メインコンテンツ -->
+    <div class="flex p-5">
+      <div class="w-1/4 pt-8 pl-4  rounded-xl shadow-lg">
+        <Stepper/>
+      </div>
+      <div class="w-3/4">
+        <RouterView />
+      </div>
+    </div>
 
   </div>
-
-  <RouterView />
 </template>
 
 <style scoped>
