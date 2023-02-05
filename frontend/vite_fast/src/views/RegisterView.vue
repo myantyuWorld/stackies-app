@@ -48,7 +48,7 @@ const data = ref({
   ]
 })
 const isShowLoading = ref(false)
-
+const inputMode = ref(false)
 
 /**
  * バリデーションルール
@@ -65,10 +65,16 @@ const rules = {
 const v$ = useVuelidate(rules, data.value.baseinfo)
 
 const click_regist = async () => {
+  inputMode.value = true
   console.log(data.value)
   const result = await v$.value.$validate();
   console.log('result', result);
   console.log('$errors', v$.value.$errors);
+
+  if (!result) {
+    inputMode.value = false
+    return
+  }
   new Promise((resolve) => {
     isShowLoading.value = true
     setTimeout(() => {
@@ -97,7 +103,7 @@ const click_regist = async () => {
                 </h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :v$="v$" :inputMode="false" :baseInfo="data.baseinfo"
+                <BaseInfo :v$="v$" :inputMode="inputMode" :baseInfo="data.baseinfo"
                   :class="[isShowLoading ? 'opacity-40' : '']" />
               </div>
             </div>
