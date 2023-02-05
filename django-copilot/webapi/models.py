@@ -10,3 +10,6 @@ class Member(models.Model):
 
     class Meta:
         db_table = 'member'
+
+class Technology(models.Model):
+    name = models.CharField('技術名', max_length=255)
