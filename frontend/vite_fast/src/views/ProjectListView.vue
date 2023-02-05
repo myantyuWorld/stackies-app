@@ -193,7 +193,7 @@ const clickAddProject = async () => {
 </script>
 
 <template>
-  <div class="py-8 bg-gradient-to-br from-sky-100 to-gray-200">
+  <div class="py-8 bg-gradient-to-br ">
     <div class="flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
         <div class="m-auto">
