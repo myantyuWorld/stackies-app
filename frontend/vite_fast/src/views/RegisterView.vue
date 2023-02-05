@@ -7,6 +7,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
 
 import ExperienceRating from '../components/ExperienceRating.vue'
+import Loading from '../components/Loading.vue'
 import Rating from '../components/Rating.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 
@@ -15,6 +16,9 @@ onMounted(() => {
   initModals();
 })
 
+/**
+ * データ
+ */
 const data = ref({
   baseinfo: {
     initial: "",
@@ -43,6 +47,9 @@ const data = ref({
     }
   ]
 })
+const isShowLoading = ref(false)
+const inputMode = ref(false)
+
 /**
  * バリデーションルール
  */
@@ -58,13 +65,27 @@ const rules = {
 const v$ = useVuelidate(rules, data.value.baseinfo)
 
 const click_regist = async () => {
+  inputMode.value = true
   console.log(data.value)
   const result = await v$.value.$validate();
   console.log('result', result);
   console.log('$errors', v$.value.$errors);
 
-  // TODO : バリデーションエラーがない場合、APIリクエストする
-  // router.push('menu')
+  if (!result) {
+    inputMode.value = false
+    return
+  }
+  new Promise((resolve) => {
+    isShowLoading.value = true
+    setTimeout(() => {
+      resolve();
+    }, 3000);
+  }).then(() => {
+    isShowLoading.value = false
+    // TODO : バリデーションエラーがない場合、APIリクエストする
+    router.push('projects')
+  });
+
 }
 
 </script>
@@ -73,20 +94,23 @@ const click_regist = async () => {
   <div class="py-8 bg-gradient-to-br from-sky-100 to-gray-200">
     <div class="flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
+        <Loading :is-show="isShowLoading" />
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
             <div class="p-6 sm:p-6">
               <div class="space-y-4">
-                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">基本能力登録</h2>
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold" :class="[isShowLoading ? 'opacity-40' : '']">基本能力登録
+                </h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :v$="v$" :inputMode="false" :baseInfo="data.baseinfo" />
+                <BaseInfo :v$="v$" :inputMode="inputMode" :baseInfo="data.baseinfo"
+                  :class="[isShowLoading ? 'opacity-40' : '']" />
               </div>
             </div>
             <div class="p-6 sm:p-6">
 
               <div class="space-y-0">
-                <h2 class="mb-0 text-2xl text-cyan-900 font-bold">
+                <h2 class="mb-0 text-2xl text-cyan-900 font-bold" :class="[isShowLoading ? 'opacity-40' : '']">
                   経験技術
                   <!-- <button data-modal-toggle="defaultModal" data-modal-target="defaultModal"
                     class="text-sm ml-6 px-4 py-2 bg-gray-400  text-white rounded-lg  tracking-wider hover:bg-gray-500 outline-none">ToggleModal</button> -->
@@ -94,7 +118,7 @@ const click_regist = async () => {
                 <div id="accordion-flush" data-accordion="collapse"
                   data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
                   data-inactive-classes="text-gray-500 dark:text-gray-400">
-                  <h2 id="accordion-flush-heading-1">
+                  <h2 id="accordion-flush-heading-1" :class="[isShowLoading ? 'opacity-40' : '']">
                     <button type="button"
                       class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
                       data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
@@ -108,9 +132,11 @@ const click_regist = async () => {
                       </svg>
                     </button>
                   </h2>
-                  <div id="accordion-flush-body-1" class="hidden bg-gray-50 "
-                    aria-labelledby="accordion-flush-heading-1">
-                    <div class="flex flex-wrap justify-items-center">
+                  <div id="accordion-flush-body-1" class=" bg-gray-50"
+                    aria-labelledby="accordion-flush-heading-1"
+                    :class="[isShowLoading ? 'opacity-40' : '']">
+                    <div class="flex flex-wrap justify-items-center"
+                    >
 
                       <div class="w-1/4 p-1">
                         <Rating rate="1" />
@@ -160,11 +186,12 @@ const click_regist = async () => {
                   <div class="mt-5">
                     <!-- tabs -->
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                      for="grid-password">
+                      for="grid-password" :class="[isShowLoading ? 'opacity-40' : '']">
                       経験
                     </label>
                     <div v-for="item in data.experienceRateInfo" :key="item.id">
-                      <ExperienceRating :is-show="true" :rate="item" v-model="item.level" />
+                      <ExperienceRating :is-show="true" :rate="item" v-model="item.level"
+                        :class="[isShowLoading ? 'opacity-40' : '']" />
                     </div>
                   </div>
 
@@ -181,6 +208,7 @@ const click_regist = async () => {
         </div>
       </div>
     </div>
+
   </div>
 
 
