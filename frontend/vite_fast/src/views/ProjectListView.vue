@@ -6,6 +6,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
 
 import ProjectListTable from '../components/ProjectListTable.vue'
+import Loading from '../components/Loading.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 import ExperienceRating from '../components/ExperienceRating.vue'
 import InputComponent from '../components/InputComponent.vue'
@@ -210,6 +211,7 @@ const clickAddProject = async () => {
       <div class="relative w-full h-full max-w-2xl md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow-lg dark:bg-gray-700">
+          <Loading/>
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">

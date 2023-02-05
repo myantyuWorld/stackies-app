@@ -7,6 +7,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
 
 import ExperienceRating from '../components/ExperienceRating.vue'
+import Loading from '../components/Loading.vue'
 import Rating from '../components/Rating.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 
@@ -73,6 +74,7 @@ const click_regist = async () => {
   <div class="py-8 bg-gradient-to-br from-sky-100 to-gray-200">
     <div class="flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
+        <Loading/>
         <div class="m-auto">
           <div class="rounded-xl bg-white shadow-xl">
             <div class="p-6 sm:p-6">
@@ -181,6 +183,7 @@ const click_regist = async () => {
         </div>
       </div>
     </div>
+
   </div>
 
 
