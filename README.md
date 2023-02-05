@@ -75,3 +75,6 @@ back :http://localhost:18000/api/
 # Cacoo
 TBD
 
+# ER
+
+<img src="https://github.com/myantyuWorld/stackies-app/blob/develop/django-copilot/erd_of_all.png" width="30%">
