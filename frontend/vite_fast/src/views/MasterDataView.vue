@@ -2,84 +2,100 @@
 import { ref } from 'vue';
 import router from '@/router';
 import MasterData from '../components/MasterData.vue'
-const click_regist = () => {
-  console.log(languageList.value.filter(x => x.checked))
-  console.log(toolList.value.filter(x => x.checked))
-  console.log(infraList.value.filter(x => x.checked))
-  // router.push('menu')
-}
+import Loading from '../components/Loading.vue'
+
+
 
 const languageList = ref([
   {
     name: "Java",
-    value:"1",
-    checked : false
+    value: "1",
+    checked: false
   },
   {
     name: "C#",
-    value:"2",
-    checked : false
+    value: "2",
+    checked: false
   },
   {
     name: "Python",
-    value:"3",
-    checked : false
+    value: "3",
+    checked: false
   },
   {
     name: "Javascript",
-    value:"4",
-    checked : false
+    value: "4",
+    checked: false
   },
   {
     name: "aaa",
-    value:"5",
-    checked : false
+    value: "5",
+    checked: false
   },
   {
     name: "bbb",
-    value:"6",
-    checked : false
+    value: "6",
+    checked: false
   },
   {
     name: "ccc",
-    value:"7",
-    checked : false
+    value: "7",
+    checked: false
   },
 ])
 const toolList = ref([
   {
     name: "Docker",
-    value:"1",
-    checked : false
+    value: "1",
+    checked: false
   },
   {
     name: "AWS CLI",
-    value:"2",
-    checked : false
+    value: "2",
+    checked: false
   },
   {
     name: "VS Code",
-    value:"3",
-    checked : false
+    value: "3",
+    checked: false
   },
 ])
 const infraList = ref([
   {
     name: "Windows",
-    value:"1",
-    checked : false
+    value: "1",
+    checked: false
   },
   {
     name: "Linux",
-    value:"2",
-    checked : false
+    value: "2",
+    checked: false
   },
   {
     name: "AWS ECS",
-    value:"3",
-    checked : false
+    value: "3",
+    checked: false
   },
 ])
+
+const isShowLoading = ref(false)
+
+const click_regist = () => {
+  console.log(languageList.value.filter(x => x.checked))
+  console.log(toolList.value.filter(x => x.checked))
+  console.log(infraList.value.filter(x => x.checked))
+  new Promise((resolve) => {
+    isShowLoading.value = true
+    setTimeout(() => {
+      resolve();
+    }, 3000);
+  }).then(() => {
+    isShowLoading.value = false
+    // TODO : バリデーションエラーがない場合、APIリクエストする
+    router.push('register')
+  });
+  // router.push('menu')
+}
 
 // TODO : Vue.js: 子コンポーネントのチェックボックスを双方向にデータバインディングする | https://qiita.com/FumioNonaka/items/709360072e9f645447f8
 </script>
@@ -89,23 +105,31 @@ const infraList = ref([
     <div class="flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="relative container m-auto px-0 text-gray-500 md:px-0 xl:px-12">
         <div class="m-auto">
+          <Loading :is-show="isShowLoading" />
 
           <div class="rounded-xl bg-white shadow-xl">
 
             <div class="p-3 sm:p-8">
 
               <div class="">
-                <h2 class="text-2xl text-cyan-900 font-bold">経験技術の登録</h2>
-                <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                <h2 class="text-2xl text-cyan-900 font-bold" :class="[isShowLoading ? 'opacity-40' : '']">経験技術の登録</h2>
+                <p class="text-sm font-normal text-gray-500 dark:text-gray-400"
+                  :class="[isShowLoading ? 'opacity-40' : '']">
                   あなたがこれまで経験してきた技術を選択して、登録しましょう。
                 </p>
               </div>
-              <MasterData :list=languageList name="言語" itemBadgeColor="blue" />
-              <MasterData :list=toolList name="DB・ツール" itemBadgeColor="rose" />
-              <MasterData :list=infraList name="動作環境" itemBadgeColor="lime" />
+              <MasterData :list=languageList name="言語" itemBadgeColor="blue"
+                :class="[isShowLoading ? 'opacity-40' : '']" />
+
+              <MasterData :list=toolList name="DB・ツール" itemBadgeColor="rose"
+                :class="[isShowLoading ? 'opacity-40' : '']" />
+
+              <MasterData :list=infraList name="動作環境" itemBadgeColor="lime"
+                :class="[isShowLoading ? 'opacity-40' : '']" />
 
             </div>
-              <button @click="click_regist" class="m-3 p-3 bg-green-500 text-white w-full rounded hover:bg-green-600">更新</button>
+            <button @click="click_regist"
+              class="m-3 p-3 bg-green-500 text-white w-full rounded hover:bg-green-600">更新</button>
           </div>
 
         </div>

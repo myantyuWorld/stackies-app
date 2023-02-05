@@ -189,9 +189,12 @@ const click_regist = async () => {
                       for="grid-password" :class="[isShowLoading ? 'opacity-40' : '']">
                       経験
                     </label>
-                    <div v-for="item in data.experienceRateInfo" :key="item.id">
-                      <ExperienceRating :is-show="true" :rate="item" v-model="item.level"
+                    <div class="grid grid-cols-2">
+
+                      <div v-for="item in data.experienceRateInfo" :key="item.id">
+                        <ExperienceRating :is-show="true" :rate="item" v-model="item.level"
                         :class="[isShowLoading ? 'opacity-40' : '']" />
+                      </div>
                     </div>
                   </div>
 
