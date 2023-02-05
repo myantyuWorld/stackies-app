@@ -128,7 +128,7 @@ const click_regist = () => {
                 :class="[isShowLoading ? 'opacity-40' : '']" />
 
             </div>
-            <button @click="click_regist"
+            <button @click="click_regist" :class="[isShowLoading ? 'opacity-40' : '']"
               class="m-3 p-3 bg-green-500 text-white w-full rounded hover:bg-green-600">更新</button>
           </div>
 
