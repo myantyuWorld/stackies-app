@@ -21,6 +21,8 @@ from webapi.views import *
 
 router = routers.DefaultRouter()
 router.register(r'members', MemberViewSet)
+router.register(r'categories', CategoryViewSet)
+router.register(r'technologies', TechnologyViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
