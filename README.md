@@ -36,6 +36,7 @@ https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/patterns/deploy-a
 % docker compose run frontend yarn install
 % docker-compose run --rm web python manage.py makemigrations
 % docker-compose run --rm web python manage.py migrate
+% docker-compose run --rm web python manage.py graph_models -a -o erd_of_all.png // django.models.pyの定義をもとに、ER図を生成
 % docker compose up
 ```
 
