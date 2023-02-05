@@ -3,6 +3,9 @@ import router from '@/router';
 import { ref } from 'vue';
 import { onMounted } from 'vue'
 import { initModals } from 'flowbite'
+import { useVuelidate } from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
+
 import ExperienceRating from '../components/ExperienceRating.vue'
 import Rating from '../components/Rating.vue'
 import BaseInfo from '../components/BaseInfo.vue'
@@ -12,14 +15,9 @@ onMounted(() => {
   initModals();
 })
 
-const click_regist = () => {
-  console.log(data.value)
-  // router.push('menu')
-}
-
 const data = ref({
   baseinfo: {
-    initial: "あああ",
+    initial: "",
     birth_date: "1990-08-20",
     last_educational_background: "ほげほげ専門学校",
     qualification: "応用情報技術者, AWS CLF",
@@ -46,6 +44,22 @@ const data = ref({
   ]
 })
 
+const rules = {
+  initial: { required }
+}
+
+const v$ = useVuelidate(rules, data.value.baseinfo)
+
+const click_regist = async () => {
+  console.log(data.value)
+  const result = await v$.value.$validate();
+  console.log('result', result);
+  console.log('$errors', v$.value.$errors);
+
+  // TODO : バリデーションエラーがない場合、APIリクエストする
+  // router.push('menu')
+}
+
 </script>
 
 <template>
@@ -59,7 +73,7 @@ const data = ref({
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">基本能力登録</h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="false" :baseInfo="data.baseinfo" />
+                <BaseInfo :v$="v$" :inputMode="false" :baseInfo="data.baseinfo" />
               </div>
             </div>
             <div class="p-6 sm:p-6">

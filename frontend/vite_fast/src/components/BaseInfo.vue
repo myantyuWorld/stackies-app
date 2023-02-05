@@ -2,48 +2,56 @@
 import InputComponent from './InputComponent.vue'
 
 defineProps<{
-  inputMode:boolean,
-  baseInfo:Object
+  inputMode: boolean,
+  baseInfo: Object,
+  v$:Object
 }>()
 </script>
 <template>
   <div class="w-full px-4 shadow-none flex flex-wrap ">
     <!-- イニシャル、住所、資格（名前、取得時期）、学歴、生年月日、自己PR） -->
-    <div class="p-1 w-1/12">
+    <div class="p-1 w-1/2">
       <div>
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           イニシャル
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="イニシャル" :value="baseInfo.initial" v-model="baseInfo.initial" />
+        <InputComponent :input-mode="inputMode" placeholder="イニシャル" :value="baseInfo.initial"
+          v-model="baseInfo.initial" />
+        <div v-for="error of v$.initial.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
-    <div class="p-1 w-2/12">
+    <div class="p-1 w-1/2">
 
       <div>
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           生年月日
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="生年月日" :value="baseInfo.birth_date" v-model="baseInfo.birth_date"/>
+        <InputComponent :input-mode="inputMode" placeholder="生年月日" :value="baseInfo.birth_date"
+          v-model="baseInfo.birth_date" />
       </div>
 
     </div>
-    <div class="p-1 w-4/12">
+    <div class="p-1 w-1/2">
 
       <div>
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           最終学歴
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="最終学歴" :value="baseInfo.last_educational_background" v-model="baseInfo.last_educational_background"/>
+        <InputComponent :input-mode="inputMode" placeholder="最終学歴" :value="baseInfo.last_educational_background"
+          v-model="baseInfo.last_educational_background" />
       </div>
 
     </div>
-    <div class="p-1 w-5/12">
+    <div class="p-1 w-1/2">
       <div>
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           資格
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="資格" :value="baseInfo.qualification" v-model="baseInfo.qualification"/>
+        <InputComponent :input-mode="inputMode" placeholder="資格" :value="baseInfo.qualification"
+          v-model="baseInfo.qualification" />
       </div>
 
     </div>
@@ -52,7 +60,8 @@ defineProps<{
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           郵便番号
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="郵便番号" :value="baseInfo.postcode" v-model="baseInfo.postcode"/>
+        <InputComponent :input-mode="inputMode" placeholder="郵便番号" :value="baseInfo.postcode"
+          v-model="baseInfo.postcode" />
       </div>
 
     </div>
@@ -62,7 +71,7 @@ defineProps<{
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           住所
         </label>
-        <InputComponent :input-mode="inputMode" placeholder="住所" :value="baseInfo.address" v-model="baseInfo.address"/>
+        <InputComponent :input-mode="inputMode" placeholder="住所" :value="baseInfo.address" v-model="baseInfo.address" />
       </div>
 
     </div>
