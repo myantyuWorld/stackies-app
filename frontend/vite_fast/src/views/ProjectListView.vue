@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { onMounted } from 'vue'
-import { initDropdowns, initModals } from 'flowbite'
+import { initDropdowns, initModals, Modal } from 'flowbite'
 import { useVuelidate } from '@vuelidate/core';
 import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
 
@@ -17,7 +17,25 @@ onMounted(() => {
   initModals();
 })
 
-
+// https://flowbite.com/docs/components/modal/
+const $targetEl = document.getElementById('modalEl');
+// options with default values
+const options = {
+  placement: 'bottom-right',
+  backdrop: 'dynamic',
+  backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+  closable: true,
+  onHide: () => {
+      console.log('modal is hidden');
+  },
+  onShow: () => {
+      console.log('modal is shown');
+  },
+  onToggle: () => {
+      console.log('modal has been toggled');
+  }
+};
+const modal = new Modal($targetEl, options);
 
 const data = {
   baseinfo: {
@@ -167,6 +185,8 @@ const clickAddProject = async () => {
     }, 3000);
   }).then(() => {
     isShowLoading.value = false
+    // TODO : API request
+    modal.hide()
   });
 }
 

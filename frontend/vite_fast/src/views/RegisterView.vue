@@ -82,10 +82,10 @@ const click_regist = async () => {
     }, 3000);
   }).then(() => {
     isShowLoading.value = false
+    // TODO : バリデーションエラーがない場合、APIリクエストする
+    router.push('projects')
   });
 
-  // TODO : バリデーションエラーがない場合、APIリクエストする
-  // router.push('menu')
 }
 
 </script>
