@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 import { onMounted } from 'vue'
 import { initDropdowns, initModals } from 'flowbite'
+import { useVuelidate } from '@vuelidate/core';
+import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
+
 import ProjectListTable from '../components/ProjectListTable.vue'
 import BaseInfo from '../components/BaseInfo.vue'
 import ExperienceRating from '../components/ExperienceRating.vue'
@@ -13,9 +16,7 @@ onMounted(() => {
   initModals();
 })
 
-const clickAddProject = () => {
-  console.log(projectInfo.value)
-}
+
 
 const data = {
   baseinfo: {
@@ -123,6 +124,38 @@ const projectInfo = ref({
   role: ""
 })
 
+const rulesForProject = {
+  industries: { required },
+  systemName: { required },
+  period: { required },
+  businessOverview: { required },
+  language: { required },
+  tools: { required },
+  infra: { required },
+  workProcess: { required },
+  role: { required },
+}
+
+// TODO : BaseInfo, 表示モード時、バリデーション不要だが、コンポーネントの作りが悪く、指定しないとエラーとなる
+const rules = {
+  initial: {},
+  birth_date: {},
+  last_educational_background: {},
+  qualification: {},
+  postcode: {},
+  address: {},
+  self_pr: {}
+}
+const v$ = useVuelidate(rules, data.baseinfo)
+const projectValidate = useVuelidate(rulesForProject, projectInfo)
+
+const clickAddProject = async () => {
+  console.log(projectInfo.value)
+  const result = await projectValidate.value.$validate();
+  console.log('result', result);
+  console.log('$errors', projectValidate.value.$errors);
+}
+
 </script>
 
 <template>
@@ -136,7 +169,7 @@ const projectInfo = ref({
                 <h2 class="mb-0 text-2xl text-cyan-900 font-bold">案件対応履歴</h2>
               </div>
               <div class="flex bg-white">
-                <BaseInfo :inputMode="true" :base-info="data.baseinfo" />
+                <BaseInfo :v$="v$" :inputMode="true" :base-info="data.baseinfo" />
               </div>
             </div>
             <div class="p-3 sm:p-3">
@@ -173,10 +206,10 @@ const projectInfo = ref({
 
     <!-- Main modal -->
     <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full shadow-lg">
       <div class="relative w-full h-full max-w-2xl md:h-auto">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow-lg dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -199,7 +232,11 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   業種
                 </label>
-                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.industries" v-model="projectInfo.industries" />
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.industries"
+                  v-model="projectInfo.industries" />
+                <div v-for="error of projectValidate.industries.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -209,7 +246,11 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   システム名
                 </label>
-                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.systemName" v-model="projectInfo.systemName" />
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.systemName"
+                  v-model="projectInfo.systemName" />
+                <div v-for="error of projectValidate.systemName.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -221,6 +262,9 @@ const projectInfo = ref({
                 </label>
                 <textarea type="text" v-model="projectInfo.businessOverview"
                   class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent text-black-800"></textarea>
+                <div v-for="error of projectValidate.businessOverview.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -229,7 +273,11 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   言語
                 </label>
-                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.language" v-model="projectInfo.language" />
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.language"
+                  v-model="projectInfo.language" />
+                <div v-for="error of projectValidate.language.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -238,7 +286,11 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   DB/Tool
                 </label>
-                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.tools" v-model="projectInfo.tools" />
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.tools"
+                  v-model="projectInfo.tools" />
+                <div v-for="error of projectValidate.tools.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -248,7 +300,11 @@ const projectInfo = ref({
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                   動作環境
                 </label>
-                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.infra" v-model="projectInfo.infra" />
+                <InputComponent :input-mode="false" placeholder="" :value="projectInfo.infra"
+                  v-model="projectInfo.infra" />
+                <div v-for="error of projectValidate.infra.$errors" :key="error.$uid">
+                  <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                </div>
               </div>
 
             </div>
@@ -264,7 +320,8 @@ const projectInfo = ref({
 
                 <ul class="grid w-full gap-6 md:grid-cols-4">
                   <li>
-                    <input type="checkbox" id="aaa" v-model="projectInfo.workProcess.rd" class="hidden peer" required="">
+                    <input type="checkbox" id="aaa" v-model="projectInfo.workProcess.rd" class="hidden peer"
+                      required="">
                     <label for="aaa"
                       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                       <div class="block">
@@ -339,7 +396,11 @@ const projectInfo = ref({
                   <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                     役割
                   </label>
-                  <InputComponent :input-mode="false" placeholder="" :value="projectInfo.role" v-model="projectInfo.role" />
+                  <InputComponent :input-mode="false" placeholder="" :value="projectInfo.role"
+                    v-model="projectInfo.role" />
+                  <div v-for="error of projectValidate.role.$errors" :key="error.$uid">
+                    <div class="text-red-700 font-bold">{{ error.$message }}</div>
+                  </div>
                 </div>
               </div>
 
@@ -348,10 +409,7 @@ const projectInfo = ref({
           </div>
           <!-- Modal footer -->
           <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <button 
-              type="button" 
-              data-modal-hide="staticModal"
-              @click="clickAddProject"
+            <button type="button" @click="clickAddProject"
               class=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">追加</button>
             <button data-modal-hide="staticModal" type="button"
               class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">キャンセル</button>
