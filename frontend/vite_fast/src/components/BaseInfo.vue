@@ -31,6 +31,9 @@ defineProps<{
         </label>
         <InputComponent :input-mode="inputMode" placeholder="生年月日" :value="baseInfo.birth_date"
           v-model="baseInfo.birth_date" />
+          <div v-for="error of v$.birth_date.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
@@ -42,6 +45,9 @@ defineProps<{
         </label>
         <InputComponent :input-mode="inputMode" placeholder="最終学歴" :value="baseInfo.last_educational_background"
           v-model="baseInfo.last_educational_background" />
+          <div v-for="error of v$.last_educational_background.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
@@ -52,6 +58,9 @@ defineProps<{
         </label>
         <InputComponent :input-mode="inputMode" placeholder="資格" :value="baseInfo.qualification"
           v-model="baseInfo.qualification" />
+          <div v-for="error of v$.qualification.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
@@ -62,6 +71,9 @@ defineProps<{
         </label>
         <InputComponent :input-mode="inputMode" placeholder="郵便番号" :value="baseInfo.postcode"
           v-model="baseInfo.postcode" />
+          <div v-for="error of v$.postcode.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
@@ -72,6 +84,9 @@ defineProps<{
           住所
         </label>
         <InputComponent :input-mode="inputMode" placeholder="住所" :value="baseInfo.address" v-model="baseInfo.address" />
+        <div v-for="error of v$.address.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>
@@ -88,6 +103,9 @@ defineProps<{
           placeholder="Email" v-model="baseInfo.self_pr"
           :class="{'disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none' : inputMode}"
           :disabled="inputMode"></textarea>
+          <div v-for="error of v$.self_pr.$errors" :key="error.$uid">
+          <div class="text-red-700 font-bold">{{ error.$message }}</div>
+        </div>
       </div>
 
     </div>

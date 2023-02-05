@@ -4,7 +4,7 @@ import { ref } from 'vue';
 import { onMounted } from 'vue'
 import { initModals } from 'flowbite'
 import { useVuelidate } from '@vuelidate/core';
-import { required } from '@vuelidate/validators';
+import { required, maxLength, minLength, alpha } from '@vuelidate/validators';
 
 import ExperienceRating from '../components/ExperienceRating.vue'
 import Rating from '../components/Rating.vue'
@@ -43,11 +43,18 @@ const data = ref({
     }
   ]
 })
-
+/**
+ * バリデーションルール
+ */
 const rules = {
-  initial: { required }
+  initial: { required, minLength: minLength(2), maxLength: maxLength(2), alpha },
+  birth_date: { required },
+  last_educational_background: { required },
+  qualification: { required },
+  postcode: { required, minLength: minLength(7), maxLength: maxLength(7) },
+  address: { required },
+  self_pr: { required }
 }
-
 const v$ = useVuelidate(rules, data.value.baseinfo)
 
 const click_regist = async () => {
