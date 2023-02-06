@@ -12,6 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TechnologySerializer(serializers.ModelSerializer):
+     category = CategorySerializer(read_only=True)
      class Meta:
         model = Technology
         fields = '__all__'

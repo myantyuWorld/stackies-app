@@ -13,6 +13,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+# TODO ; 【Django REST framework】POST時はForeignKeyをpkのみ指定し、GET時はネストしたオブジェクトを展開する | https://sakataharumi.hatenablog.jp/entry/2018/10/20/010806
 class TechnologyViewSet(viewsets.ModelViewSet):
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
