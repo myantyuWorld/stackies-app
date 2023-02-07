@@ -35,7 +35,7 @@ class TechnologyApiView(views.APIView):
         infra = qs.filter(category=3)
 
         return Response({
-            "languageList": lang.values("id", "name"),
-            "toolList": tools.values("id", "name"),
-            "infraList": infra.values("id", "name"),
+            "languageList": lang.values(),
+            "toolList": tools.values(),
+            "infraList": infra.values(),
         })
