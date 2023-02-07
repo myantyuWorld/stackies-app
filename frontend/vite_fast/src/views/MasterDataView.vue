@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import axios from 'axios';
 import router from '@/router';
 import MasterData from '../components/MasterData.vue'
 import Loading from '../components/Loading.vue'
@@ -7,79 +8,96 @@ import Loading from '../components/Loading.vue'
 
 
 const languageList = ref([
-  {
-    name: "Java",
-    value: "1",
-    checked: false
-  },
-  {
-    name: "C#",
-    value: "2",
-    checked: false
-  },
-  {
-    name: "Python",
-    value: "3",
-    checked: false
-  },
-  {
-    name: "Javascript",
-    value: "4",
-    checked: false
-  },
-  {
-    name: "aaa",
-    value: "5",
-    checked: false
-  },
-  {
-    name: "bbb",
-    value: "6",
-    checked: false
-  },
-  {
-    name: "ccc",
-    value: "7",
-    checked: false
-  },
+  // {
+  //   name: "Java",
+  //   value: "1",
+  //   checked: false
+  // },
+  // {
+  //   name: "C#",
+  //   value: "2",
+  //   checked: false
+  // },
+  // {
+  //   name: "Python",
+  //   value: "3",
+  //   checked: false
+  // },
+  // {
+  //   name: "Javascript",
+  //   value: "4",
+  //   checked: false
+  // },
+  // {
+  //   name: "aaa",
+  //   value: "5",
+  //   checked: false
+  // },
+  // {
+  //   name: "bbb",
+  //   value: "6",
+  //   checked: false
+  // },
+  // {
+  //   name: "ccc",
+  //   value: "7",
+  //   checked: false
+  // },
 ])
 const toolList = ref([
-  {
-    name: "Docker",
-    value: "1",
-    checked: false
-  },
-  {
-    name: "AWS CLI",
-    value: "2",
-    checked: false
-  },
-  {
-    name: "VS Code",
-    value: "3",
-    checked: false
-  },
+  // {
+  //   name: "Docker",
+  //   value: "1",
+  //   checked: false
+  // },
+  // {
+  //   name: "AWS CLI",
+  //   value: "2",
+  //   checked: false
+  // },
+  // {
+  //   name: "VS Code",
+  //   value: "3",
+  //   checked: false
+  // },
 ])
 const infraList = ref([
-  {
-    name: "Windows",
-    value: "1",
-    checked: false
-  },
-  {
-    name: "Linux",
-    value: "2",
-    checked: false
-  },
-  {
-    name: "AWS ECS",
-    value: "3",
-    checked: false
-  },
+  // {
+  //   name: "Windows",
+  //   value: "1",
+  //   checked: false
+  // },
+  // {
+  //   name: "Linux",
+  //   value: "2",
+  //   checked: false
+  // },
+  // {
+  //   name: "AWS ECS",
+  //   value: "3",
+  //   checked: false
+  // },
 ])
 
 const isShowLoading = ref(false)
 
+const fetchTechnologies = () => {
+  const promise = axios.get("http://localhost:18000/api/v2/technologies")
+  promise
+    .then((response) => {
+      console.log(response.data)
+      languageList.value = response.data.languageList
+      toolList.value = response.data.toolList
+      infraList.value = response.data.infraList
+    })
+    .then(() => {
+      // TODO : reactiveな変数に取得結果を格納する
+    })
+    .catch((e) => {
+      alert(e.message)
+    })
+}
+fetchTechnologies()
 const click_regist = () => {
   console.log(languageList.value.filter(x => x.checked))
   console.log(toolList.value.filter(x => x.checked))
@@ -92,7 +110,6 @@ const click_regist = () => {
   }).then(() => {
     isShowLoading.value = false
     // TODO : バリデーションエラーがない場合、APIリクエストする
-    router.push('register')
   });
   // router.push('menu')
 }
