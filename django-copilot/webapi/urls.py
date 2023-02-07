@@ -17,15 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from webapi.views import *
+from webapi import views
 
 router = routers.DefaultRouter()
-router.register(r'members', MemberViewSet)
-router.register(r'categories', CategoryViewSet)
-router.register(r'technologies', TechnologyViewSet)
+router.register(r'members', views.MemberViewSet)
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'technologies', views.TechnologyViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/v2/', include(
+        [
+            path('technologies', views.TechnologyApiView.as_view()),
+        ]
+    ))
 ]
-
