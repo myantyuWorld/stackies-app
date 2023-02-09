@@ -6,3 +6,5 @@ django-cors-headers
 pygraphviz
 pydotplus
 django-extensions
+drf_social_oauth2
+python-decouple
