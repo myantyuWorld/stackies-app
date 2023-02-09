@@ -77,6 +77,9 @@ TBD
 
 # GoogleCloud
 https://console.cloud.google.com/
+
+https://github.com/guruahn/vue3-google-oauth2
+
 # ER
 
 <img src="https://github.com/myantyuWorld/stackies-app/blob/develop/django-copilot/erd_of_all.png" width="80%">
