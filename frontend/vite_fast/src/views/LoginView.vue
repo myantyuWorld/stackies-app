@@ -40,6 +40,19 @@
                         <button
                             class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                             @click="handleClickSignOut" v-if="isSignIn" :disabled="!isInit">signOout</button>
+                        <br />
+
+                        <h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
+                        <h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1>
+                        <h2 v-if="user">signed user: {{ user }}</h2>
+                        <button @click="handleClickSignIn"
+                            :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button><br />
+                        <button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get
+                            authCode</button><br />
+                        <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign
+                            out</button><br />
+                        <button @click="handleClickDisconnect"
+                            :disabled="!Vue3GoogleOauth.isAuthorized">disconnect</button>
                     </div>
                 </div>
             </div>
@@ -48,11 +61,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import axios from 'axios';
 import router from '@/router';
-
 import Loading from '../components/Loading.vue'
+
+// TODO : frontend sample | https://github.com/guruahn/vue3-google-oauth2-front-sample
+// 上記はできている、git cloneして動かしてみて、差を確認したい
+const Vue3GoogleOauth = inject("Vue3GoogleOauth");
 
 const isInit = ref(false)
 const isSignIn = ref(false)
@@ -63,24 +79,35 @@ const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
 const DRF_CLIENT_ID = import.meta.env.VITE_DRF_CLIENT_ID
 const DRF_CLIENT_SECRET = import.meta.env.VITE_DRF_CLIENT_SECRET
 
-const handleClickGetAuth = async () => {
-    console.log('handleClickGetAuth')
+const handleClickLogin = () => {};
+const handleClickGetAuthCode = async () => {
     try {
-        const authCode = await this.$gAuth.getAuthCode()
-        const response = await this.$http.post('http://localhost:18000/auth/convert-token', { code: authCode, redirect_uri: 'postmessage' })
+        const authCode = await this.$gAuth.getAuthCode();
+        console.log("authCode", authCode);
     } catch (error) {
-        // On fail do something
+        //on fail do something
+        console.error(error);
+        return null;
     }
 }
 
 const handleClickSignIn = async () => {
-    console.log('handleClickSignIn')
     try {
-        const googleUser = await this.$gAuth.signIn()
-        console.log('user', googleUser)
-        this.isSignIn = this.$gAuth.isAuthorized
+        const googleUser = await this.$gAuth.signIn();
+        if (!googleUser) {
+            return null;
+        }
+        console.log("googleUser", googleUser);
+        this.user = googleUser.getBasicProfile().getEmail();
+        console.log("getId", this.user);
+        console.log("getBasicProfile", googleUser.getBasicProfile());
+        console.log("getAuthResponse", googleUser.getAuthResponse());
+        console.log(
+            "getAuthResponse",
+            this.$gAuth.instance.currentUser.get().getAuthResponse()
+        );
     } catch (error) {
-        // On fail do something
+        //on fail do something
         console.error(error);
         return null;
     }
@@ -89,12 +116,18 @@ const handleClickSignIn = async () => {
 const handleClickSignOut = async () => {
     console.log('handleClickSignOut')
     try {
-        await this.$gAuth.signOut()
-        this.isSignIn = this.$gAuth.isAuthorized
+        await this.$gAuth.signOut();
+        console.log("isAuthorized", this.Vue3GoogleOauth.isAuthorized);
+        this.user = "";
     } catch (error) {
-        // On fail do something
+        console.error(error);
     }
 }
+
+const handleClickDisconnect = () => {
+    window.location.href = `https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=${window.location.href}`;
+}
+
 
 const login = () => {
     new Promise((resolve) => {
