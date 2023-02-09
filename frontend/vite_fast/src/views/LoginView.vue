@@ -31,6 +31,15 @@
                             :class="[isShowLoading ? 'opacity-40' : '']" @click="login">
                             Signin
                         </button>
+                        <button
+                            class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            @click="handleClickGetAuth" :disabled="!isInit">get auth code</button>
+                        <button
+                            class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            @click="handleClickSignIn" v-if="!isSignIn" :disabled="!isInit">signIn</button>
+                        <button
+                            class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            @click="handleClickSignOut" v-if="isSignIn" :disabled="!isInit">signOout</button>
                     </div>
                 </div>
             </div>
@@ -45,7 +54,47 @@ import router from '@/router';
 
 import Loading from '../components/Loading.vue'
 
+const isInit = ref(false)
+const isSignIn = ref(false)
 const isShowLoading = ref(false)
+console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID)
+
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
+const DRF_CLIENT_ID = import.meta.env.VITE_DRF_CLIENT_ID
+const DRF_CLIENT_SECRET = import.meta.env.VITE_DRF_CLIENT_SECRET
+
+const handleClickGetAuth = async () => {
+    console.log('handleClickGetAuth')
+    try {
+        const authCode = await this.$gAuth.getAuthCode()
+        const response = await this.$http.post('http://localhost:18000/auth/convert-token', { code: authCode, redirect_uri: 'postmessage' })
+    } catch (error) {
+        // On fail do something
+    }
+}
+
+const handleClickSignIn = async () => {
+    console.log('handleClickSignIn')
+    try {
+        const googleUser = await this.$gAuth.signIn()
+        console.log('user', googleUser)
+        this.isSignIn = this.$gAuth.isAuthorized
+    } catch (error) {
+        // On fail do something
+        console.error(error);
+        return null;
+    }
+}
+
+const handleClickSignOut = async () => {
+    console.log('handleClickSignOut')
+    try {
+        await this.$gAuth.signOut()
+        this.isSignIn = this.$gAuth.isAuthorized
+    } catch (error) {
+        // On fail do something
+    }
+}
 
 const login = () => {
     new Promise((resolve) => {
@@ -61,7 +110,7 @@ const login = () => {
                 console.log(response)
                 isShowLoading.value = false
                 // router/index.ts > router.nameで画面遷移可能 | https://v3.router.vuejs.org/ja/guide/essentials/navigation.html
-                router.push('menu')
+                // router.push('menu')
             })
             .catch((e) => {
                 console.log(e)
