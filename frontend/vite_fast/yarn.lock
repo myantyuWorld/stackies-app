@@ -3099,6 +3099,11 @@ vue-tsc@^1.0.12:
     "@volar/vue-language-core" "1.0.18"
     "@volar/vue-typescript" "1.0.18"
 
+vue3-google-oauth2@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue3-google-oauth2/-/vue3-google-oauth2-1.0.6.tgz#bde2e17a565e83979d54f83e27bac8e7ced03b1a"
+  integrity sha512-ebUW3V1jejImw2z9nggjczPj4jUnZArNq+kgTdLdGuf6k/zQDDCeGTLmTUiy5gSXMbzVz9PQWiVEj8eX6y/I0Q==
+
 vue@^3.2.45:
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"

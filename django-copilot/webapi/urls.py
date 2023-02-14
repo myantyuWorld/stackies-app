@@ -31,5 +31,6 @@ urlpatterns = [
         [
             path('technologies', views.TechnologyApiView.as_view()),
         ]
-    ))
+    )),
+    path('auth/', include('drf_social_oauth2.urls', namespace='drf')),
 ]
