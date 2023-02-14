@@ -6,3 +6,4 @@ django-cors-headers
 pygraphviz
 pydotplus
 django-extensions
+djangorestframework-api-key==2.2.0
