@@ -59,8 +59,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webapi.urls'
 
+CORS_ALLOW_HEADERS = ["*"]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
-     'http://localhost:15173'
+     'http://localhost:15173',
+     'http://127.0.0.1:15173',
 ]
 
 TEMPLATES = [
@@ -78,6 +82,15 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
+}
 
 WSGI_APPLICATION = 'webapi.wsgi.application'
 

@@ -82,20 +82,22 @@ const infraList = ref([
 const isShowLoading = ref(false)
 
 const fetchTechnologies = () => {
-  const promise = axios.get("http://localhost:18000/api/v2/technologies")
+  const headers = { 'X-Api-Key': "3IgkFQLG.64MJYF6MjXrpE1PMJbKCipu6R5TM4skz" }
+  const promise = axios.get("http://localhost:18000/api/technologies/", { headers: headers})
   promise
     .then((response) => {
-      console.log(response.data)
-      languageList.value = response.data.languageList
-      toolList.value = response.data.toolList
-      infraList.value = response.data.infraList
-    })
-    .then(() => {
-      // TODO : reactiveな変数に取得結果を格納する
-    })
-    .catch((e) => {
-      alert(e.message)
-    })
+    console.log(response.data)
+    languageList.value = response.data.languageList
+    toolList.value = response.data.toolList
+    infraList.value = response.data.infraList
+  })
+  .then(() => {
+    // TODO : reactiveな変数に取得結果を格納する
+  })
+  .catch((e) => {
+    console.log(e)
+    alert(e.message)
+  })
 }
 fetchTechnologies()
 const click_regist = () => {
