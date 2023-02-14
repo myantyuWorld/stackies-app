@@ -2,6 +2,9 @@ from django.shortcuts import render
 import django_filters
 from rest_framework import viewsets, filters, views
 from rest_framework.response import Response
+from rest_framework_api_key.permissions import HasAPIKey
+from rest_framework.permissions import IsAuthenticated 
+
 from webapi.models import *
 from webapi.serializer import *
 
@@ -9,11 +12,13 @@ from webapi.serializer import *
 
 
 class MemberViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
@@ -21,6 +26,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 
 class TechnologyViewSet(viewsets.ModelViewSet):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     queryset = Technology.objects.all()
     serializer_class = TechnologySerializer
 
@@ -28,6 +34,7 @@ class TechnologyViewSet(viewsets.ModelViewSet):
 # values() 関数を使用して、QuerySet を JSON に変換する
 # https://www.delftstack.com/ja/howto/django/django-queryset-to-json/#values-%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6queryset-%E3%82%92-json-%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B
 class TechnologyApiView(views.APIView):
+    permission_classes = [HasAPIKey | IsAuthenticated]
     def get(self, request, format=None):
         qs = Technology.objects.all()
         lang = qs.filter(category=1)

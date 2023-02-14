@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapi',
     'rest_framework',
+    "rest_framework_api_key",  # 追加
     'django_extensions',
     'corsheaders',
 ]
