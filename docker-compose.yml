@@ -13,16 +13,16 @@ services:
     environment:
       AWS_DEFAULT_REGION: ap-northeast-1
       AWS_DEFAULT_OUTPUT: json
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    container_name: vue_app
-    working_dir: /app
-    volumes:
-      - ./frontend/vite_fast:/app
-    ports:
-      - "15173:5173"
+  # frontend: 別リポジトリに移動、メモとして残す
+  #   build:
+  #     context: .
+  #     dockerfile: frontend/Dockerfile
+  #   container_name: vue_app
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend/vite_fast:/app
+  #   ports:
+  #     - "15173:5173"
   db:
     build: 
       context: .
